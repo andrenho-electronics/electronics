@@ -1,0 +1,101 @@
+EESchema Schematic File Version 2
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+LIBS:msx_storage-cache
+EELAYER 25 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L AT28C256 U?
+U 1 1 563364CE
+P 4650 2650
+F 0 "U?" H 4650 2550 50  0000 C CNN
+F 1 "AT28C256" H 4650 2750 50  0000 C CNN
+F 2 "MODULE" H 4650 2400 50  0001 C CNN
+F 3 "DOCUMENTATION" H 4750 2250 50  0001 C CNN
+	1    4650 2650
+	1    0    0    -1  
+$EndComp
+$Comp
+L AT28C256 U?
+U 1 1 56336563
+P 4650 5650
+F 0 "U?" H 4650 5550 50  0000 C CNN
+F 1 "AT28C256" H 4650 5750 50  0000 C CNN
+F 2 "MODULE" H 4650 5400 50  0001 C CNN
+F 3 "DOCUMENTATION" H 4750 5250 50  0001 C CNN
+	1    4650 5650
+	1    0    0    -1  
+$EndComp
+$Comp
+L SD_Card CON?
+U 1 1 56336DF0
+P 7600 5450
+F 0 "CON?" H 6950 6000 50  0000 C CNN
+F 1 "SD_Card" H 8200 4900 50  0000 C CNN
+F 2 "10067847-001" H 7800 5800 50  0000 C CNN
+F 3 "" H 7600 5450 60  0000 C CNN
+	1    7600 5450
+	1    0    0    -1  
+$EndComp
+$Comp
+L CONN_02X25 P?
+U 1 1 56336FE1
+P 1900 2900
+F 0 "P?" H 1900 4200 50  0000 C CNN
+F 1 "CONN_02X25" V 1900 2900 50  0000 C CNN
+F 2 "" H 1900 2150 60  0000 C CNN
+F 3 "" H 1900 2150 60  0000 C CNN
+	1    1900 2900
+	1    0    0    -1  
+$EndComp
+$Comp
+L ATMEGA162-P IC?
+U 1 1 563372B9
+P 7600 2650
+F 0 "IC?" H 6750 4480 40  0000 L BNN
+F 1 "ATMEGA162-P" H 8000 800 40  0000 L BNN
+F 2 "DIL40" H 7600 2650 30  0000 C CIN
+F 3 "" H 7600 2650 60  0000 C CNN
+	1    7600 2650
+	1    0    0    -1  
+$EndComp
+$EndSCHEMATC

@@ -1,0 +1,14 @@
+INITXT == 0x6C
+LDIRVM == 0x5C
+FILVRM == 0x56
+CHGET  == 0x9F
+POSIT  == 0xC6
+CHPUT  == 0xA2
+
+CSRSW  == 0xFCA9
+CSRX   == 0xF3DD
+CSRY   == 0xF3DC
+
+SCREEN_W == 40
+
+; vim: syntax=z8a
