@@ -1,0 +1,149 @@
+Box: http://www.soldafria.com.br/caixa-patola-pb-119-65x112x190-p-480.html
+
+Ver: http://www.farnellnewark.com.br/
+     
+
+Layout:
+
++---------+ +------+
+|         | |      |         +-------------------------+     +----------+
+|         | |      |         |                         |=====| ext. 5V? |
+|  proto  | |      ++-------++                         |     +----------+
+|  board  | | conn || flat  ||         trainer         |
+|         | |      || cable ||                         |
+|         | |      ++-------++                         |
+|         | |      |         |                         |
+|         | |      |         +-------------------------+
++---------+ +------+
+
+Module list:
+
+  - outputs:
+    - logic indicator
+    - hex display
+    - text display
+    - sound
+    - external ports
+    - relays
+  - inputs
+    - pots
+    - switches
+    - logic switches (buffered)
+    - logic switches (unbuffered)
+  - processing
+    - timers
+    - logic gates
+    - memory (JKs)
+
+Modules:
+
+  - Logic indicator
+    - input:
+      - 16 pins
+      - TTL/CMOS?
+    - output
+      - 16 small leds
+      
+  - Hex display
+    - input: 16 pins
+    - output: 4 7seg display
+  
+  - Speaker
+    - input: 2 pins + 1 pin for buzzer
+    - output
+      - speaker (needs resistor?)
+      - buzzer
+      
+  - Pots
+    - 1k
+    - 10k (2)
+    - 100k
+
+  - Switches
+    - input
+      - 4 spdt switches
+      - 4 spst switches
+      - 4 debounced pushbuttons
+    - output
+      - 8 leds for the spdt/spst
+
+  - Logic switches (buffered)
+    - input
+      - 8 spst switches 
+      - Buffered? button
+      - Send button
+      - TTL/CMOS?
+    - output
+      - buffered led
+      - 8 pins
+
+   - Extra logic switches
+     - input
+       - 8 channel DIP switch
+     - output
+       - 8 pins
+
+   - Outpus
+     - input
+       - X pins?
+     - output
+       - USB
+       - SD card?
+       - RJ45
+       - serial port
+       - parallel port
+       - composite
+       - audio
+       - VGA
+
+   - High power outputs
+     - 4 relays
+     - input
+       - 4 pins
+     - output
+       - 8 screwdriver connectors
+
+  - Text display
+    - Input
+      - n pins?
+    - Output
+      - text display
+
+  - Logic gates
+    - Ports: AND, OR, XOR, NAND, NOT
+    - Maybe: JK with LEDs?
+
+  - Timers
+    - 2 555
+
+
+OPTIONAL ?
+
+  - Pulse generator
+     - LMC555 - disponível em http://www.farnellnewark.com.br/
+     - até 3Mhz
+     - inputs
+       - pots:
+         - frequency
+         - duty cycle
+     - output
+         - wave output
+     - TTL / CMOS?
+
+  - Frequency counter
+    - ATTINY2313 ?
+       - see http://www.svet-el.si/english/index.php/projects/5-practical/44-avr185
+    - SAB6456 - um prescaler
+    - input
+      - on/off
+      - wave input
+      - ground
+    - output
+      - 4 7seg digits
+      - led indicator for Hz / kHz / MHz
+
+  - RGB leds
+    - input: 6 pins (3 for each)
+    - output: 2 RGB leds
+
+  - Keypad
