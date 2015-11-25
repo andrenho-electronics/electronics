@@ -1,4 +1,4 @@
-update=23/11/2015 16:02:22
+update=24/11/2015 17:08:52
 version=1
 last_client=kicad
 [cvpcb]
@@ -43,11 +43,9 @@ LibName13=led
 LibName14=dip_sockets
 LibName15=pga_sockets
 LibName16=valves
-[general]
-version=1
 [eeschema]
 version=1
-LibDir=C:/andre/projects/electronics/new/trainer
+LibDir=../trainer
 [eeschema/libraries]
 LibName1=trainer-rescue
 LibName2=power
@@ -81,3 +79,6 @@ LibName29=atmel
 LibName30=contrib
 LibName31=valves
 LibName32=MiscellaneousDevices
+LibName33=C:/andre/projects/electronics/new/trainer/ULN280xA
+[general]
+version=1
