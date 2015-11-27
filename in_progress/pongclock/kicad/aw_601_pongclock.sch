@@ -1,4 +1,5 @@
-EESchema Schematic File Version 2  date 16/09/2013 09:15:03
+EESchema Schematic File Version 2
+LIBS:aw_601_pongclock-rescue
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -10,7 +11,6 @@ LIBS:cmos4000
 LIBS:adc-dac
 LIBS:memory
 LIBS:xilinx
-LIBS:special
 LIBS:microcontrollers
 LIBS:dsp
 LIBS:microchip
@@ -29,9 +29,8 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
-LIBS:kicad
 LIBS:aw_601_pongclock-cache
-EELAYER 27 0
+EELAYER 25 0
 EELAYER END
 $Descr A3 16535 11693
 encoding utf-8
@@ -156,7 +155,7 @@ F 3 "~" H 8550 8750 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L PN2222A Q1
+L PN2222A-RESCUE-aw_601_pongclock Q1
 U 1 1 51B0D300
 P 6200 6250
 F 0 "Q1" H 6200 6102 40  0000 R CNN
@@ -167,7 +166,7 @@ F 3 "~" H 6200 6250 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L PN2222A Q3
+L PN2222A-RESCUE-aw_601_pongclock Q3
 U 1 1 51B0D39E
 P 6800 6250
 F 0 "Q3" H 6800 6102 40  0000 R CNN
@@ -178,7 +177,7 @@ F 3 "~" H 6800 6250 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L PN2222A Q5
+L PN2222A-RESCUE-aw_601_pongclock Q5
 U 1 1 51B0D3A4
 P 7400 6250
 F 0 "Q5" H 7400 6102 40  0000 R CNN
@@ -189,7 +188,7 @@ F 3 "~" H 7400 6250 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L PN2222A Q7
+L PN2222A-RESCUE-aw_601_pongclock Q7
 U 1 1 51B0D3AA
 P 8000 6250
 F 0 "Q7" H 8000 6102 40  0000 R CNN
@@ -200,7 +199,7 @@ F 3 "~" H 8000 6250 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L PN2222A Q9
+L PN2222A-RESCUE-aw_601_pongclock Q9
 U 1 1 51B0D3B0
 P 8600 6250
 F 0 "Q9" H 8600 6102 40  0000 R CNN
@@ -211,7 +210,7 @@ F 3 "~" H 8600 6250 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L PN2222A Q11
+L PN2222A-RESCUE-aw_601_pongclock Q11
 U 1 1 51B0D3B6
 P 9200 6250
 F 0 "Q11" H 9200 6102 40  0000 R CNN
@@ -222,7 +221,7 @@ F 3 "~" H 9200 6250 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L PN2222A Q13
+L PN2222A-RESCUE-aw_601_pongclock Q13
 U 1 1 51B0D3BC
 P 9800 6250
 F 0 "Q13" H 9800 6102 40  0000 R CNN
@@ -233,7 +232,7 @@ F 3 "~" H 9800 6250 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L PN2222A Q15
+L PN2222A-RESCUE-aw_601_pongclock Q15
 U 1 1 51B0D3C2
 P 10400 6250
 F 0 "Q15" H 10400 6102 40  0000 R CNN
@@ -244,7 +243,7 @@ F 3 "~" H 10400 6250 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L PN2222A Q2
+L PN2222A-RESCUE-aw_601_pongclock Q2
 U 1 1 51B0D3F8
 P 6400 5700
 F 0 "Q2" H 6400 5552 40  0000 R CNN
@@ -255,7 +254,7 @@ F 3 "~" H 6400 5700 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L PN2222A Q4
+L PN2222A-RESCUE-aw_601_pongclock Q4
 U 1 1 51B0D3FE
 P 7000 5700
 F 0 "Q4" H 7000 5552 40  0000 R CNN
@@ -266,7 +265,7 @@ F 3 "~" H 7000 5700 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L PN2222A Q6
+L PN2222A-RESCUE-aw_601_pongclock Q6
 U 1 1 51B0D404
 P 7600 5700
 F 0 "Q6" H 7600 5552 40  0000 R CNN
@@ -277,7 +276,7 @@ F 3 "~" H 7600 5700 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L PN2222A Q8
+L PN2222A-RESCUE-aw_601_pongclock Q8
 U 1 1 51B0D40A
 P 8200 5700
 F 0 "Q8" H 8200 5552 40  0000 R CNN
@@ -288,7 +287,7 @@ F 3 "~" H 8200 5700 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L PN2222A Q10
+L PN2222A-RESCUE-aw_601_pongclock Q10
 U 1 1 51B0D410
 P 8800 5700
 F 0 "Q10" H 8800 5552 40  0000 R CNN
@@ -299,7 +298,7 @@ F 3 "~" H 8800 5700 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L PN2222A Q12
+L PN2222A-RESCUE-aw_601_pongclock Q12
 U 1 1 51B0D416
 P 9400 5700
 F 0 "Q12" H 9400 5552 40  0000 R CNN
@@ -310,7 +309,7 @@ F 3 "~" H 9400 5700 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L PN2222A Q14
+L PN2222A-RESCUE-aw_601_pongclock Q14
 U 1 1 51B0D41C
 P 10000 5700
 F 0 "Q14" H 10000 5552 40  0000 R CNN
@@ -321,7 +320,7 @@ F 3 "~" H 10000 5700 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L PN2222A Q16
+L PN2222A-RESCUE-aw_601_pongclock Q16
 U 1 1 51B0D422
 P 10600 5700
 F 0 "Q16" H 10600 5552 40  0000 R CNN
@@ -332,7 +331,7 @@ F 3 "~" H 10600 5700 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R4
+L R-RESCUE-aw_601_pongclock R4
 U 1 1 51B0D45A
 P 7850 7300
 F 0 "R4" V 7800 7050 40  0000 C CNN
@@ -343,7 +342,7 @@ F 3 "~" H 7850 7300 30  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R5
+L R-RESCUE-aw_601_pongclock R5
 U 1 1 51B0D492
 P 7950 7300
 F 0 "R5" V 7900 7050 40  0000 C CNN
@@ -354,7 +353,7 @@ F 3 "~" H 7950 7300 30  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R6
+L R-RESCUE-aw_601_pongclock R6
 U 1 1 51B0D498
 P 8050 7300
 F 0 "R6" V 8000 7050 40  0000 C CNN
@@ -365,7 +364,7 @@ F 3 "~" H 8050 7300 30  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R7
+L R-RESCUE-aw_601_pongclock R7
 U 1 1 51B0D49E
 P 8150 7300
 F 0 "R7" V 8100 7050 40  0000 C CNN
@@ -376,7 +375,7 @@ F 3 "~" H 8150 7300 30  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R8
+L R-RESCUE-aw_601_pongclock R8
 U 1 1 51B0D4A4
 P 8250 7300
 F 0 "R8" V 8200 7050 40  0000 C CNN
@@ -387,7 +386,7 @@ F 3 "~" H 8250 7300 30  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R9
+L R-RESCUE-aw_601_pongclock R9
 U 1 1 51B0D4AA
 P 8350 7300
 F 0 "R9" V 8300 7050 40  0000 C CNN
@@ -398,7 +397,7 @@ F 3 "~" H 8350 7300 30  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R10
+L R-RESCUE-aw_601_pongclock R10
 U 1 1 51B0D4B0
 P 8450 7300
 F 0 "R10" V 8400 7050 40  0000 C CNN
@@ -409,7 +408,7 @@ F 3 "~" H 8450 7300 30  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R27
+L R-RESCUE-aw_601_pongclock R27
 U 1 1 51B0D4B6
 P 8550 7300
 F 0 "R27" V 8500 7050 40  0000 C CNN
@@ -420,7 +419,7 @@ F 3 "~" H 8550 7300 30  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R28
+L R-RESCUE-aw_601_pongclock R28
 U 1 1 51B0D4BC
 P 8650 7300
 F 0 "R28" V 8600 7050 40  0000 C CNN
@@ -431,7 +430,7 @@ F 3 "~" H 8650 7300 30  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R29
+L R-RESCUE-aw_601_pongclock R29
 U 1 1 51B0D4C8
 P 8750 7300
 F 0 "R29" V 8700 7050 40  0000 C CNN
@@ -442,7 +441,7 @@ F 3 "~" H 8750 7300 30  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R30
+L R-RESCUE-aw_601_pongclock R30
 U 1 1 51B0D4CE
 P 8850 7300
 F 0 "R30" V 8800 7050 40  0000 C CNN
@@ -453,7 +452,7 @@ F 3 "~" H 8850 7300 30  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R31
+L R-RESCUE-aw_601_pongclock R31
 U 1 1 51B0D4D4
 P 8950 7300
 F 0 "R31" V 8900 7050 40  0000 C CNN
@@ -464,7 +463,7 @@ F 3 "~" H 8950 7300 30  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R32
+L R-RESCUE-aw_601_pongclock R32
 U 1 1 51B0D4DA
 P 9050 7300
 F 0 "R32" V 9000 7050 40  0000 C CNN
@@ -475,7 +474,7 @@ F 3 "~" H 9050 7300 30  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R33
+L R-RESCUE-aw_601_pongclock R33
 U 1 1 51B0D4E0
 P 9150 7300
 F 0 "R33" V 9100 7050 40  0000 C CNN
@@ -486,7 +485,7 @@ F 3 "~" H 9150 7300 30  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R34
+L R-RESCUE-aw_601_pongclock R34
 U 1 1 51B0D4E6
 P 9250 7300
 F 0 "R34" V 9200 7050 40  0000 C CNN
@@ -497,7 +496,7 @@ F 3 "~" H 9250 7300 30  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R35
+L R-RESCUE-aw_601_pongclock R35
 U 1 1 51B0D4EC
 P 9350 7300
 F 0 "R35" V 9300 7050 40  0000 C CNN
@@ -519,7 +518,7 @@ F 3 "~" H 13450 8750 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L PN2222A Q17
+L PN2222A-RESCUE-aw_601_pongclock Q17
 U 1 1 51B0D927
 P 11100 6250
 F 0 "Q17" H 11100 6102 40  0000 R CNN
@@ -530,7 +529,7 @@ F 3 "~" H 11100 6250 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L PN2222A Q19
+L PN2222A-RESCUE-aw_601_pongclock Q19
 U 1 1 51B0D92D
 P 11700 6250
 F 0 "Q19" H 11700 6102 40  0000 R CNN
@@ -541,7 +540,7 @@ F 3 "~" H 11700 6250 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L PN2222A Q21
+L PN2222A-RESCUE-aw_601_pongclock Q21
 U 1 1 51B0D933
 P 12300 6250
 F 0 "Q21" H 12300 6102 40  0000 R CNN
@@ -552,7 +551,7 @@ F 3 "~" H 12300 6250 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L PN2222A Q23
+L PN2222A-RESCUE-aw_601_pongclock Q23
 U 1 1 51B0D939
 P 12900 6250
 F 0 "Q23" H 12900 6102 40  0000 R CNN
@@ -563,7 +562,7 @@ F 3 "~" H 12900 6250 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L PN2222A Q25
+L PN2222A-RESCUE-aw_601_pongclock Q25
 U 1 1 51B0D93F
 P 13500 6250
 F 0 "Q25" H 13500 6102 40  0000 R CNN
@@ -574,7 +573,7 @@ F 3 "~" H 13500 6250 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L PN2222A Q27
+L PN2222A-RESCUE-aw_601_pongclock Q27
 U 1 1 51B0D945
 P 14100 6250
 F 0 "Q27" H 14100 6102 40  0000 R CNN
@@ -585,7 +584,7 @@ F 3 "~" H 14100 6250 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L PN2222A Q29
+L PN2222A-RESCUE-aw_601_pongclock Q29
 U 1 1 51B0D94B
 P 14700 6250
 F 0 "Q29" H 14700 6102 40  0000 R CNN
@@ -596,7 +595,7 @@ F 3 "~" H 14700 6250 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L PN2222A Q31
+L PN2222A-RESCUE-aw_601_pongclock Q31
 U 1 1 51B0D951
 P 15300 6250
 F 0 "Q31" H 15300 6102 40  0000 R CNN
@@ -607,7 +606,7 @@ F 3 "~" H 15300 6250 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L PN2222A Q18
+L PN2222A-RESCUE-aw_601_pongclock Q18
 U 1 1 51B0D957
 P 11300 5700
 F 0 "Q18" H 11300 5552 40  0000 R CNN
@@ -618,7 +617,7 @@ F 3 "~" H 11300 5700 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L PN2222A Q20
+L PN2222A-RESCUE-aw_601_pongclock Q20
 U 1 1 51B0D95D
 P 11900 5700
 F 0 "Q20" H 11900 5552 40  0000 R CNN
@@ -629,7 +628,7 @@ F 3 "~" H 11900 5700 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L PN2222A Q22
+L PN2222A-RESCUE-aw_601_pongclock Q22
 U 1 1 51B0D963
 P 12500 5700
 F 0 "Q22" H 12500 5552 40  0000 R CNN
@@ -640,7 +639,7 @@ F 3 "~" H 12500 5700 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L PN2222A Q24
+L PN2222A-RESCUE-aw_601_pongclock Q24
 U 1 1 51B0D969
 P 13100 5700
 F 0 "Q24" H 13100 5552 40  0000 R CNN
@@ -651,7 +650,7 @@ F 3 "~" H 13100 5700 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L PN2222A Q26
+L PN2222A-RESCUE-aw_601_pongclock Q26
 U 1 1 51B0D96F
 P 13700 5700
 F 0 "Q26" H 13700 5552 40  0000 R CNN
@@ -662,7 +661,7 @@ F 3 "~" H 13700 5700 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L PN2222A Q28
+L PN2222A-RESCUE-aw_601_pongclock Q28
 U 1 1 51B0D975
 P 14300 5700
 F 0 "Q28" H 14300 5552 40  0000 R CNN
@@ -673,7 +672,7 @@ F 3 "~" H 14300 5700 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L PN2222A Q30
+L PN2222A-RESCUE-aw_601_pongclock Q30
 U 1 1 51B0D97B
 P 14900 5700
 F 0 "Q30" H 14900 5552 40  0000 R CNN
@@ -684,7 +683,7 @@ F 3 "~" H 14900 5700 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L PN2222A Q32
+L PN2222A-RESCUE-aw_601_pongclock Q32
 U 1 1 51B0D981
 P 15500 5700
 F 0 "Q32" H 15500 5552 40  0000 R CNN
@@ -695,7 +694,7 @@ F 3 "~" H 15500 5700 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R52
+L R-RESCUE-aw_601_pongclock R52
 U 1 1 51B0D987
 P 12750 7300
 F 0 "R52" V 12700 7050 40  0000 C CNN
@@ -706,7 +705,7 @@ F 3 "~" H 12750 7300 30  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R53
+L R-RESCUE-aw_601_pongclock R53
 U 1 1 51B0D98D
 P 12850 7300
 F 0 "R53" V 12800 7050 40  0000 C CNN
@@ -717,7 +716,7 @@ F 3 "~" H 12850 7300 30  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R54
+L R-RESCUE-aw_601_pongclock R54
 U 1 1 51B0D993
 P 12950 7300
 F 0 "R54" V 12900 7050 40  0000 C CNN
@@ -728,7 +727,7 @@ F 3 "~" H 12950 7300 30  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R55
+L R-RESCUE-aw_601_pongclock R55
 U 1 1 51B0D999
 P 13050 7300
 F 0 "R55" V 13000 7050 40  0000 C CNN
@@ -739,7 +738,7 @@ F 3 "~" H 13050 7300 30  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R56
+L R-RESCUE-aw_601_pongclock R56
 U 1 1 51B0D99F
 P 13150 7300
 F 0 "R56" V 13100 7050 40  0000 C CNN
@@ -750,7 +749,7 @@ F 3 "~" H 13150 7300 30  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R57
+L R-RESCUE-aw_601_pongclock R57
 U 1 1 51B0D9A5
 P 13250 7300
 F 0 "R57" V 13200 7050 40  0000 C CNN
@@ -761,7 +760,7 @@ F 3 "~" H 13250 7300 30  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R58
+L R-RESCUE-aw_601_pongclock R58
 U 1 1 51B0D9AB
 P 13350 7300
 F 0 "R58" V 13300 7050 40  0000 C CNN
@@ -772,7 +771,7 @@ F 3 "~" H 13350 7300 30  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R59
+L R-RESCUE-aw_601_pongclock R59
 U 1 1 51B0D9B1
 P 13450 7300
 F 0 "R59" V 13400 7050 40  0000 C CNN
@@ -783,7 +782,7 @@ F 3 "~" H 13450 7300 30  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R60
+L R-RESCUE-aw_601_pongclock R60
 U 1 1 51B0D9B7
 P 13550 7300
 F 0 "R60" V 13500 7050 40  0000 C CNN
@@ -794,7 +793,7 @@ F 3 "~" H 13550 7300 30  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R61
+L R-RESCUE-aw_601_pongclock R61
 U 1 1 51B0D9BD
 P 13650 7300
 F 0 "R61" V 13600 7050 40  0000 C CNN
@@ -805,7 +804,7 @@ F 3 "~" H 13650 7300 30  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R62
+L R-RESCUE-aw_601_pongclock R62
 U 1 1 51B0D9C3
 P 13750 7300
 F 0 "R62" V 13700 7050 40  0000 C CNN
@@ -816,7 +815,7 @@ F 3 "~" H 13750 7300 30  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R63
+L R-RESCUE-aw_601_pongclock R63
 U 1 1 51B0D9C9
 P 13850 7300
 F 0 "R63" V 13800 7050 40  0000 C CNN
@@ -827,7 +826,7 @@ F 3 "~" H 13850 7300 30  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R64
+L R-RESCUE-aw_601_pongclock R64
 U 1 1 51B0D9CF
 P 13950 7300
 F 0 "R64" V 13900 7050 40  0000 C CNN
@@ -838,7 +837,7 @@ F 3 "~" H 13950 7300 30  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R65
+L R-RESCUE-aw_601_pongclock R65
 U 1 1 51B0D9D5
 P 14050 7300
 F 0 "R65" V 14000 7050 40  0000 C CNN
@@ -849,7 +848,7 @@ F 3 "~" H 14050 7300 30  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R66
+L R-RESCUE-aw_601_pongclock R66
 U 1 1 51B0D9DB
 P 14150 7300
 F 0 "R66" V 14100 7050 40  0000 C CNN
@@ -860,7 +859,7 @@ F 3 "~" H 14150 7300 30  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R67
+L R-RESCUE-aw_601_pongclock R67
 U 1 1 51B0D9E1
 P 14250 7300
 F 0 "R67" V 14200 7050 40  0000 C CNN
@@ -871,7 +870,7 @@ F 3 "~" H 14250 7300 30  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR01
+L GND-RESCUE-aw_601_pongclock #PWR01
 U 1 1 51B0F2EB
 P 3850 6050
 F 0 "#PWR01" H 3850 6050 30  0001 C CNN
@@ -882,7 +881,7 @@ F 3 "" H 3850 6050 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR02
+L GND-RESCUE-aw_601_pongclock #PWR02
 U 1 1 51B0F2FA
 P 3850 7400
 F 0 "#PWR02" H 3850 7400 30  0001 C CNN
@@ -893,7 +892,7 @@ F 3 "" H 3850 7400 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR03
+L GND-RESCUE-aw_601_pongclock #PWR03
 U 1 1 51B0F309
 P 3850 8650
 F 0 "#PWR03" H 3850 8650 30  0001 C CNN
@@ -904,7 +903,7 @@ F 3 "" H 3850 8650 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR04
+L GND-RESCUE-aw_601_pongclock #PWR04
 U 1 1 51B0F318
 P 3850 9950
 F 0 "#PWR04" H 3850 9950 30  0001 C CNN
@@ -1442,7 +1441,7 @@ F 3 "~" H 6000 2950 60  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L R R1
+L R-RESCUE-aw_601_pongclock R1
 U 1 1 51B1806D
 P 4750 3250
 F 0 "R1" V 4700 3000 40  0000 C CNN
@@ -1453,7 +1452,7 @@ F 3 "~" H 4750 3250 30  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L R R2
+L R-RESCUE-aw_601_pongclock R2
 U 1 1 51B18078
 P 5250 3400
 F 0 "R2" V 5200 3150 40  0000 C CNN
@@ -1464,7 +1463,7 @@ F 3 "~" H 5250 3400 30  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L R R3
+L R-RESCUE-aw_601_pongclock R3
 U 1 1 51B1807E
 P 5750 3550
 F 0 "R3" V 5700 3300 40  0000 C CNN
@@ -1475,7 +1474,7 @@ F 3 "~" H 5750 3550 30  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L GND #PWR06
+L GND-RESCUE-aw_601_pongclock #PWR06
 U 1 1 51B180C5
 P 4500 4150
 F 0 "#PWR06" H 4500 4150 30  0001 C CNN
@@ -1497,7 +1496,7 @@ F 3 "" H 2350 1000 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR08
+L GND-RESCUE-aw_601_pongclock #PWR08
 U 1 1 51B1A000
 P 2350 4550
 F 0 "#PWR08" H 2350 4550 30  0001 C CNN
@@ -1519,7 +1518,7 @@ F 3 "" H 1350 2000 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR010
+L GND-RESCUE-aw_601_pongclock #PWR010
 U 1 1 51B1A00E
 P 1350 2350
 F 0 "#PWR010" H 1350 2350 30  0001 C CNN
@@ -1541,7 +1540,7 @@ F 3 "~" H 1000 3050 60  0000 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L C C1
+L C-RESCUE-aw_601_pongclock C1
 U 1 1 51B1A3E6
 P 700 3250
 F 0 "C1" H 700 3350 40  0000 L CNN
@@ -1552,7 +1551,7 @@ F 3 "~" H 700 3250 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C C2
+L C-RESCUE-aw_601_pongclock C2
 U 1 1 51B1A405
 P 1300 3250
 F 0 "C2" H 1300 3350 40  0000 L CNN
@@ -1563,7 +1562,7 @@ F 3 "~" H 1300 3250 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR011
+L GND-RESCUE-aw_601_pongclock #PWR011
 U 1 1 51B1A40B
 P 1000 3750
 F 0 "#PWR011" H 1000 3750 30  0001 C CNN
@@ -2299,7 +2298,7 @@ Wire Wire Line
 Wire Wire Line
 	11300 4550 11900 4550
 $Comp
-L GND #PWR012
+L GND-RESCUE-aw_601_pongclock #PWR012
 U 1 1 51B14A7F
 P 1600 6800
 F 0 "#PWR012" H 1600 6800 30  0001 C CNN
@@ -2399,7 +2398,7 @@ F 3 "" H 5600 1050 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR014
+L GND-RESCUE-aw_601_pongclock #PWR014
 U 1 1 51BAFAFB
 P 5600 1450
 F 0 "#PWR014" H 5600 1450 30  0001 C CNN
@@ -2423,7 +2422,7 @@ Connection ~ 5600 1350
 Wire Wire Line
 	2350 1000 2350 1600
 $Comp
-L CP1 C3
+L CP1-RESCUE-aw_601_pongclock C3
 U 1 1 51BB0678
 P 2050 1300
 F 0 "C3" H 2100 1400 50  0000 L CNN
@@ -2434,7 +2433,7 @@ F 3 "~" H 2050 1300 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR015
+L GND-RESCUE-aw_601_pongclock #PWR015
 U 1 1 51BB0685
 P 2050 1550
 F 0 "#PWR015" H 2050 1550 30  0001 C CNN
@@ -2489,7 +2488,7 @@ $EndComp
 Connection ~ 5000 2650
 Connection ~ 5500 2650
 $Comp
-L R R11
+L R-RESCUE-aw_601_pongclock R11
 U 1 1 51CD9769
 P 4500 3800
 F 0 "R11" V 4450 3550 40  0000 C CNN
@@ -2579,7 +2578,7 @@ Wire Wire Line
 Wire Wire Line
 	3350 4650 3350 4000
 $Comp
-L GND #PWR018
+L GND-RESCUE-aw_601_pongclock #PWR018
 U 1 1 51CDD068
 P 1750 10450
 F 0 "#PWR018" H 1750 10450 30  0001 C CNN
@@ -2617,7 +2616,7 @@ SDA
 Text Label 1100 9200 0    60   ~ 0
 SCL
 $Comp
-L R R13
+L R-RESCUE-aw_601_pongclock R13
 U 1 1 5230ED52
 P 950 8100
 F 0 "R13" V 900 7850 40  0000 C CNN
@@ -2628,7 +2627,7 @@ F 3 "~" H 950 8100 30  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R12
+L R-RESCUE-aw_601_pongclock R12
 U 1 1 5230ED5F
 P 800 8100
 F 0 "R12" V 750 7850 40  0000 C CNN
