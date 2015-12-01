@@ -11,7 +11,6 @@ LIBS:cmos4000
 LIBS:adc-dac
 LIBS:memory
 LIBS:xilinx
-LIBS:special
 LIBS:microcontrollers
 LIBS:dsp
 LIBS:microchip
@@ -31,11 +30,12 @@ LIBS:atmel
 LIBS:contrib
 LIBS:valves
 LIBS:MiscellaneousDevices
+LIBS:ULN280xA
 LIBS:Gajda_cmosieee
 LIBS:jhd-162a
 LIBS:capteurs
 LIBS:trainer-cache
-EELAYER 27 0
+EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -105,7 +105,7 @@ F 3 "" H 7800 2900 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R?
+L R-RESCUE-trainer R?
 U 1 1 565AF994
 P 9750 850
 F 0 "R?" V 9700 1000 50  0000 C CNN
@@ -116,7 +116,7 @@ F 3 "" H 9750 850 30  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L R R?
+L R-RESCUE-trainer R?
 U 1 1 565AF99B
 P 9750 950
 F 0 "R?" V 9700 1100 50  0000 C CNN
@@ -127,7 +127,7 @@ F 3 "" H 9750 950 30  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L R R?
+L R-RESCUE-trainer R?
 U 1 1 565AF9A2
 P 9750 1050
 F 0 "R?" V 9700 1200 50  0000 C CNN
@@ -138,7 +138,7 @@ F 3 "" H 9750 1050 30  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L R R?
+L R-RESCUE-trainer R?
 U 1 1 565AF9A9
 P 9750 1150
 F 0 "R?" V 9700 1300 50  0000 C CNN
@@ -149,7 +149,7 @@ F 3 "" H 9750 1150 30  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L R R?
+L R-RESCUE-trainer R?
 U 1 1 565AFB06
 P 9750 1250
 F 0 "R?" V 9700 1400 50  0000 C CNN
@@ -160,7 +160,7 @@ F 3 "" H 9750 1250 30  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L R R?
+L R-RESCUE-trainer R?
 U 1 1 565AFB0C
 P 9750 1350
 F 0 "R?" V 9700 1500 50  0000 C CNN
@@ -171,7 +171,7 @@ F 3 "" H 9750 1350 30  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L R R?
+L R-RESCUE-trainer R?
 U 1 1 565AFB12
 P 9750 1450
 F 0 "R?" V 9700 1600 50  0000 C CNN
@@ -182,7 +182,7 @@ F 3 "" H 9750 1450 30  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L R R?
+L R-RESCUE-trainer R?
 U 1 1 565AFB18
 P 9750 1550
 F 0 "R?" V 9700 1700 50  0000 C CNN
@@ -193,7 +193,7 @@ F 3 "" H 9750 1550 30  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L R R?
+L R-RESCUE-trainer R?
 U 1 1 565AFFED
 P 9750 2100
 F 0 "R?" V 9700 2250 50  0000 C CNN
@@ -204,7 +204,7 @@ F 3 "" H 9750 2100 30  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L R R?
+L R-RESCUE-trainer R?
 U 1 1 565AFFF3
 P 9750 2200
 F 0 "R?" V 9700 2350 50  0000 C CNN
@@ -215,7 +215,7 @@ F 3 "" H 9750 2200 30  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L R R?
+L R-RESCUE-trainer R?
 U 1 1 565AFFF9
 P 9750 2300
 F 0 "R?" V 9700 2450 50  0000 C CNN
@@ -226,7 +226,7 @@ F 3 "" H 9750 2300 30  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L R R?
+L R-RESCUE-trainer R?
 U 1 1 565AFFFF
 P 9750 2400
 F 0 "R?" V 9700 2550 50  0000 C CNN
@@ -237,7 +237,7 @@ F 3 "" H 9750 2400 30  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L R R?
+L R-RESCUE-trainer R?
 U 1 1 565B0009
 P 9750 2500
 F 0 "R?" V 9700 2650 50  0000 C CNN
@@ -248,7 +248,7 @@ F 3 "" H 9750 2500 30  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L R R?
+L R-RESCUE-trainer R?
 U 1 1 565B000F
 P 9750 2600
 F 0 "R?" V 9700 2750 50  0000 C CNN
@@ -259,7 +259,7 @@ F 3 "" H 9750 2600 30  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L R R?
+L R-RESCUE-trainer R?
 U 1 1 565B0015
 P 9750 2700
 F 0 "R?" V 9700 2850 50  0000 C CNN
@@ -270,7 +270,7 @@ F 3 "" H 9750 2700 30  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L R R?
+L R-RESCUE-trainer R?
 U 1 1 565B001B
 P 9750 2800
 F 0 "R?" V 9700 2950 50  0000 C CNN
@@ -292,7 +292,7 @@ F 3 "" H 10700 650 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L LED D?
+L LED-RESCUE-trainer D?
 U 1 1 565B750A
 P 10350 850
 F 0 "D?" H 10100 800 50  0000 C CNN
@@ -303,7 +303,7 @@ F 3 "" H 10350 850 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L LED D?
+L LED-RESCUE-trainer D?
 U 1 1 565B7969
 P 10350 950
 F 0 "D?" H 10100 900 50  0000 C CNN
@@ -314,7 +314,7 @@ F 3 "" H 10350 950 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L LED D?
+L LED-RESCUE-trainer D?
 U 1 1 565B79BC
 P 10350 1050
 F 0 "D?" H 10100 1000 50  0000 C CNN
@@ -325,7 +325,7 @@ F 3 "" H 10350 1050 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L LED D?
+L LED-RESCUE-trainer D?
 U 1 1 565B7A12
 P 10350 1150
 F 0 "D?" H 10100 1100 50  0000 C CNN
@@ -336,7 +336,7 @@ F 3 "" H 10350 1150 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L LED D?
+L LED-RESCUE-trainer D?
 U 1 1 565B7A67
 P 10350 1250
 F 0 "D?" H 10100 1200 50  0000 C CNN
@@ -347,7 +347,7 @@ F 3 "" H 10350 1250 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L LED D?
+L LED-RESCUE-trainer D?
 U 1 1 565B7ABF
 P 10350 1350
 F 0 "D?" H 10100 1300 50  0000 C CNN
@@ -358,7 +358,7 @@ F 3 "" H 10350 1350 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L LED D?
+L LED-RESCUE-trainer D?
 U 1 1 565B7B1A
 P 10350 1450
 F 0 "D?" H 10100 1400 50  0000 C CNN
@@ -369,7 +369,7 @@ F 3 "" H 10350 1450 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L LED D?
+L LED-RESCUE-trainer D?
 U 1 1 565B7B78
 P 10350 1550
 F 0 "D?" H 10100 1500 50  0000 C CNN
@@ -380,7 +380,7 @@ F 3 "" H 10350 1550 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L LED D?
+L LED-RESCUE-trainer D?
 U 1 1 565B883B
 P 10350 2100
 F 0 "D?" H 10100 2050 50  0000 C CNN
@@ -391,7 +391,7 @@ F 3 "" H 10350 2100 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L LED D?
+L LED-RESCUE-trainer D?
 U 1 1 565B8841
 P 10350 2200
 F 0 "D?" H 10100 2150 50  0000 C CNN
@@ -402,7 +402,7 @@ F 3 "" H 10350 2200 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L LED D?
+L LED-RESCUE-trainer D?
 U 1 1 565B8847
 P 10350 2300
 F 0 "D?" H 10100 2250 50  0000 C CNN
@@ -413,7 +413,7 @@ F 3 "" H 10350 2300 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L LED D?
+L LED-RESCUE-trainer D?
 U 1 1 565B884D
 P 10350 2400
 F 0 "D?" H 10100 2350 50  0000 C CNN
@@ -424,7 +424,7 @@ F 3 "" H 10350 2400 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L LED D?
+L LED-RESCUE-trainer D?
 U 1 1 565B8853
 P 10350 2500
 F 0 "D?" H 10100 2450 50  0000 C CNN
@@ -435,7 +435,7 @@ F 3 "" H 10350 2500 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L LED D?
+L LED-RESCUE-trainer D?
 U 1 1 565B8859
 P 10350 2600
 F 0 "D?" H 10100 2550 50  0000 C CNN
@@ -446,7 +446,7 @@ F 3 "" H 10350 2600 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L LED D?
+L LED-RESCUE-trainer D?
 U 1 1 565B885F
 P 10350 2700
 F 0 "D?" H 10100 2650 50  0000 C CNN
@@ -457,7 +457,7 @@ F 3 "" H 10350 2700 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L LED D?
+L LED-RESCUE-trainer D?
 U 1 1 565B8865
 P 10350 2800
 F 0 "D?" H 10100 2750 50  0000 C CNN
@@ -512,7 +512,7 @@ F 3 "" H 4100 5900 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R?
+L R-RESCUE-trainer R?
 U 1 1 5658BCB8
 P 7200 4300
 F 0 "R?" V 7150 4450 50  0000 C CNN
@@ -523,7 +523,7 @@ F 3 "" H 7200 4300 30  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L R R?
+L R-RESCUE-trainer R?
 U 1 1 5658C036
 P 7200 4400
 F 0 "R?" V 7150 4550 50  0000 C CNN
@@ -534,7 +534,7 @@ F 3 "" H 7200 4400 30  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L R R?
+L R-RESCUE-trainer R?
 U 1 1 5658C0EA
 P 7200 4500
 F 0 "R?" V 7150 4650 50  0000 C CNN
@@ -545,7 +545,7 @@ F 3 "" H 7200 4500 30  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L R R?
+L R-RESCUE-trainer R?
 U 1 1 5658C1A2
 P 7200 4600
 F 0 "R?" V 7150 4750 50  0000 C CNN
@@ -646,7 +646,7 @@ F 3 "" H 3150 3350 60  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L R R?
+L R-RESCUE-trainer R?
 U 1 1 5659977A
 P 7200 5000
 F 0 "R?" V 7150 5150 50  0000 C CNN
@@ -657,7 +657,7 @@ F 3 "" H 7200 5000 30  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L R R?
+L R-RESCUE-trainer R?
 U 1 1 5658C3B8
 P 7200 4900
 F 0 "R?" V 7150 5050 50  0000 C CNN
@@ -668,7 +668,7 @@ F 3 "" H 7200 4900 30  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L R R?
+L R-RESCUE-trainer R?
 U 1 1 5658C2C7
 P 7200 4800
 F 0 "R?" V 7150 4950 50  0000 C CNN
@@ -679,7 +679,7 @@ F 3 "" H 7200 4800 30  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L R R?
+L R-RESCUE-trainer R?
 U 1 1 5658C233
 P 7200 4700
 F 0 "R?" V 7150 4850 50  0000 C CNN

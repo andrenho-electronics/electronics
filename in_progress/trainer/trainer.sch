@@ -11,7 +11,6 @@ LIBS:cmos4000
 LIBS:adc-dac
 LIBS:memory
 LIBS:xilinx
-LIBS:special
 LIBS:microcontrollers
 LIBS:dsp
 LIBS:microchip
@@ -31,11 +30,12 @@ LIBS:atmel
 LIBS:contrib
 LIBS:valves
 LIBS:MiscellaneousDevices
+LIBS:ULN280xA
 LIBS:Gajda_cmosieee
 LIBS:jhd-162a
 LIBS:capteurs
 LIBS:trainer-cache
-EELAYER 27 0
+EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -175,7 +175,7 @@ F 3 "" H 3700 1750 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C C?
+L C-RESCUE-trainer C?
 U 1 1 5657DDA5
 P 2100 2900
 F 0 "C?" H 2125 3000 50  0000 L CNN
@@ -186,7 +186,7 @@ F 3 "" H 2100 2900 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C C?
+L C-RESCUE-trainer C?
 U 1 1 5657DE9C
 P 2900 2900
 F 0 "C?" H 2925 3000 50  0000 L CNN
@@ -252,7 +252,7 @@ F 3 "" H 3700 2700 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R?
+L R-RESCUE-trainer R?
 U 1 1 5659DCCE
 P 3250 4800
 F 0 "R?" V 3200 4950 50  0000 C CNN
@@ -263,7 +263,7 @@ F 3 "" H 3250 4800 30  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L R R?
+L R-RESCUE-trainer R?
 U 1 1 5659E1A6
 P 3250 4900
 F 0 "R?" V 3200 5050 50  0000 C CNN
@@ -274,7 +274,7 @@ F 3 "" H 3250 4900 30  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L R R?
+L R-RESCUE-trainer R?
 U 1 1 5659E1E3
 P 3250 5000
 F 0 "R?" V 3200 5150 50  0000 C CNN
@@ -285,7 +285,7 @@ F 3 "" H 3250 5000 30  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L R R?
+L R-RESCUE-trainer R?
 U 1 1 5659E227
 P 3250 5100
 F 0 "R?" V 3200 5250 50  0000 C CNN
@@ -328,32 +328,20 @@ Wire Wire Line
 Wire Wire Line
 	2900 2750 2900 2650
 Wire Wire Line
-	2900 2650 3250 2650
-Wire Wire Line
-	3250 2650 3500 2650
+	2900 2650 3500 2650
 Wire Wire Line
 	2100 2650 2100 2750
 Wire Wire Line
 	3250 2650 3250 2500
 Wire Wire Line
-	1650 2750 1650 2850
-Wire Wire Line
-	1650 2850 1650 3100
+	1650 2750 1650 3100
 Connection ~ 1650 2850
 Wire Wire Line
-	1650 3100 2100 3100
-Wire Wire Line
-	2100 3100 2500 3100
-Wire Wire Line
-	2500 3100 2900 3100
-Wire Wire Line
-	2900 3100 3500 3100
+	1650 3100 3500 3100
 Wire Wire Line
 	2900 3100 2900 3050
 Wire Wire Line
-	2500 2950 2500 3100
-Wire Wire Line
-	2500 3100 2500 3200
+	2500 2950 2500 3200
 Connection ~ 2900 3100
 Connection ~ 2500 3100
 Wire Wire Line
@@ -379,13 +367,7 @@ Wire Wire Line
 Wire Wire Line
 	3000 5100 3100 5100
 Wire Wire Line
-	4000 3950 4000 4200
-Wire Wire Line
-	4000 4200 4000 5000
-Wire Wire Line
-	4000 5000 4000 5800
-Wire Wire Line
-	4000 5800 4000 6600
+	4000 3950 4000 6600
 Wire Wire Line
 	4000 4200 4200 4200
 Wire Wire Line
@@ -541,7 +523,7 @@ $EndComp
 Wire Wire Line
 	8650 3450 8650 3850
 $Comp
-L PN2222A Q?
+L PN2222A-RESCUE-trainer Q?
 U 1 1 565B1B0C
 P 8750 4250
 F 0 "Q?" H 8950 4325 50  0000 L CNN
@@ -565,7 +547,7 @@ $EndComp
 Wire Wire Line
 	8650 4450 8650 4550
 $Comp
-L R R?
+L R-RESCUE-trainer R?
 U 1 1 565B1BAF
 P 9400 4250
 F 0 "R?" V 9480 4250 40  0000 C CNN
