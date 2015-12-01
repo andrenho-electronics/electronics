@@ -1,0 +1,12 @@
+1 socket ZIF
+3 LED, different colors
+2 tactile buttons
+1 SPDT button
+DIP switch
+1 relay
+AVR / PIC programmer
+  status LEDs
+  crystal
+  buffer?
+  USB
+  voltage pump?

@@ -1,0 +1,5 @@
+Display (lights on on button press)
+Dimmer lights for waking up
+Play music on waking up (?)
+Button as touch sensor
+Very dim light for showing where the button is

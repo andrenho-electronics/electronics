@@ -1,0 +1,3 @@
+encode from analog
+decode to analog
+generate selecting frequency and duty cycle
