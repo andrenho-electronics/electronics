@@ -1,4 +1,4 @@
-update=26/11/2015 10:18:22
+update=30/11/2015 08:43:18
 version=1
 last_client=kicad
 [cvpcb]
@@ -45,6 +45,16 @@ LibName15=pga_sockets
 LibName16=valves
 [general]
 version=1
+[schematic_editor]
+version=1
+PageLayoutDescrFile=
+PlotDirectoryName=
+SubpartIdSeparator=0
+SubpartFirstId=65
+NetFmtName=
+SpiceForceRefPrefix=0
+SpiceUseNetNumbers=0
+LabSize=60
 [eeschema]
 version=1
 LibDir=../trainer
@@ -85,13 +95,3 @@ LibName33=C:/andre/projects/electronics/new/trainer/ULN280xA
 LibName34=Gajda_cmosieee
 LibName35=jhd-162a
 LibName36=capteurs
-[schematic_editor]
-version=1
-PageLayoutDescrFile=
-PlotDirectoryName=
-SubpartIdSeparator=0
-SubpartFirstId=65
-NetFmtName=
-SpiceForceRefPrefix=0
-SpiceUseNetNumbers=0
-LabSize=60

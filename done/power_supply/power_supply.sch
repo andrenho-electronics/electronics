@@ -1,4 +1,5 @@
 EESchema Schematic File Version 2
+LIBS:power_supply-rescue
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -29,7 +30,7 @@ LIBS:atmel
 LIBS:contrib
 LIBS:valves
 LIBS:power_supply-cache
-EELAYER 27 0
+EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -92,7 +93,7 @@ Text Label 6150 1900 0    60   ~ 0
 Text Label 6150 2100 0    60   ~ 0
 110VAC
 $Comp
-L R R1
+L R-RESCUE-power_supply R1
 U 1 1 56509E9F
 P 1750 4050
 F 0 "R1" V 1830 4050 40  0000 C CNN
@@ -103,7 +104,7 @@ F 3 "~" H 1750 4050 30  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L LED D1
+L LED-RESCUE-power_supply D1
 U 1 1 56509EAE
 P 1750 4750
 F 0 "D1" H 1750 4850 50  0000 C CNN
@@ -158,7 +159,7 @@ F 3 "~" H 2650 4700 60  0000 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L R R2
+L R-RESCUE-power_supply R2
 U 1 1 56509FF0
 P 2000 5550
 F 0 "R2" V 2080 5550 40  0000 C CNN
@@ -169,7 +170,7 @@ F 3 "~" H 2000 5550 30  0000 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L CP1 C1
+L CP1-RESCUE-power_supply C1
 U 1 1 5651B086
 P 2450 5550
 F 0 "C1" H 2500 5650 50  0000 L CNN
@@ -191,7 +192,7 @@ F 3 "~" H 2650 5350 60  0000 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L R R3
+L R-RESCUE-power_supply R3
 U 1 1 5651B12C
 P 2950 4450
 F 0 "R3" V 3030 4450 40  0000 C CNN
@@ -202,7 +203,7 @@ F 3 "~" H 2950 4450 30  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L CP1 C2
+L CP1-RESCUE-power_supply C2
 U 1 1 5651B13B
 P 3300 4450
 F 0 "C2" H 3350 4550 50  0000 L CNN
@@ -213,7 +214,7 @@ F 3 "~" H 3300 4450 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C C4
+L C-RESCUE-power_supply C4
 U 1 1 5651B154
 P 3800 4450
 F 0 "C4" H 3800 4550 40  0000 L CNN
@@ -235,7 +236,7 @@ F 3 "~" H 2950 5550 60  0000 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L CP1 C3
+L CP1-RESCUE-power_supply C3
 U 1 1 5651B195
 P 3300 5350
 F 0 "C3" H 3350 5450 50  0000 L CNN
@@ -246,7 +247,7 @@ F 3 "~" H 3300 5350 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R4
+L R-RESCUE-power_supply R4
 U 1 1 5651B1AE
 P 3550 5550
 F 0 "R4" V 3630 5550 40  0000 C CNN
@@ -257,7 +258,7 @@ F 3 "~" H 3550 5550 30  0000 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L ZENER D8
+L ZENER-RESCUE-power_supply D8
 U 1 1 5651B1C7
 P 3800 5350
 F 0 "D8" H 3800 5450 50  0000 C CNN
@@ -279,7 +280,7 @@ F 3 "~" H 4200 3850 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R6
+L R-RESCUE-power_supply R6
 U 1 1 5651B3DC
 P 4850 3800
 F 0 "R6" V 4930 3800 40  0000 C CNN
@@ -301,7 +302,7 @@ F 3 "~" H 5100 4200 60  0000 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L R R5
+L R-RESCUE-power_supply R5
 U 1 1 5651B499
 P 4400 4900
 F 0 "R5" V 4480 4900 40  0000 C CNN
@@ -389,7 +390,7 @@ F 3 "~" H 5100 3400 60  0000 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L R R7
+L R-RESCUE-power_supply R7
 U 1 1 5651BE45
 P 6850 4050
 F 0 "R7" V 6930 4050 40  0000 C CNN
@@ -400,7 +401,7 @@ F 3 "~" H 6850 4050 30  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L CP1 C5
+L CP1-RESCUE-power_supply C5
 U 1 1 5651C070
 P 6500 4750
 F 0 "C5" H 6550 4850 50  0000 L CNN
@@ -411,7 +412,7 @@ F 3 "~" H 6500 4750 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L CP1 C6
+L CP1-RESCUE-power_supply C6
 U 1 1 5651C238
 P 7300 4450
 F 0 "C6" H 7350 4550 50  0000 L CNN
@@ -422,7 +423,7 @@ F 3 "~" H 7300 4450 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR1
+L GND-RESCUE-power_supply #PWR1
 U 1 1 5651C384
 P 6050 5300
 F 0 "#PWR1" H 6050 5300 30  0001 C CNN
@@ -488,7 +489,6 @@ Wire Wire Line
 Connection ~ 4150 4900
 Wire Wire Line
 	2250 5150 9500 5150
-Connection ~ 4150 5150
 Wire Wire Line
 	4200 4200 4200 4100
 Wire Wire Line
@@ -604,7 +604,7 @@ F 3 "" H 8200 4050 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR3
+L GND-RESCUE-power_supply #PWR3
 U 1 1 5651D109
 P 8200 4850
 F 0 "#PWR3" H 8200 4850 30  0001 C CNN

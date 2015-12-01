@@ -1,4 +1,4 @@
-update=30/11/2015 08:45:58
+update=30/11/2015 16:27:08
 version=1
 last_client=kicad
 [pcbnew]
@@ -62,7 +62,7 @@ LibName30=valves
 [schematic_editor]
 version=1
 PageLayoutDescrFile=
-PlotDirectoryName=
+PlotDirectoryName=C:/andre/projects/electronics/done/power_supply/
 SubpartIdSeparator=0
 SubpartFirstId=65
 NetFmtName=
