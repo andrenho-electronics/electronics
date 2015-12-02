@@ -1,7 +1,9 @@
-Display (lights on on button press)
-Dimmer lights for waking up
-Play music on waking up (?)
+Display (lights on on button press, if < 8h then dim)
+Dimmer lights that simulate keypress
+Play music on waking up
 Button as touch sensor
+DIP switch for selecting days of the week
+One-shot alarm
 Very dim light for showing where the button is
-Weather for the day
 Rain sounds
+Weather for the day (?)
