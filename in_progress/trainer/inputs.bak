@@ -11,7 +11,6 @@ LIBS:cmos4000
 LIBS:adc-dac
 LIBS:memory
 LIBS:xilinx
-LIBS:special
 LIBS:microcontrollers
 LIBS:dsp
 LIBS:microchip
@@ -31,15 +30,16 @@ LIBS:atmel
 LIBS:contrib
 LIBS:valves
 LIBS:MiscellaneousDevices
+LIBS:ULN280xA
 LIBS:Gajda_cmosieee
 LIBS:jhd-162a
 LIBS:capteurs
 LIBS:trainer-cache
-EELAYER 27 0
+EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 2 3
+Sheet 2 4
 Title ""
 Date "29 nov 2015"
 Rev ""
@@ -179,7 +179,7 @@ F 3 "" H 7600 3800 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R?
+L R-RESCUE-trainer R?
 U 1 1 56563A1D
 P 7600 3950
 F 0 "R?" V 7680 3950 50  0000 C CNN
@@ -201,9 +201,11 @@ F 3 "" H 7300 4100 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C C?
+L C-RESCUE-trainer C?
 U 1 1 56563A2B
 P 7600 4250
+AR Path="/56563A2B" Ref="C?"  Part="1" 
+AR Path="/5655FD48/56563A2B" Ref="C?"  Part="1" 
 F 0 "C?" H 7625 4350 50  0000 L CNN
 F 1 "C" H 7625 4150 50  0000 L CNN
 F 2 "10nF" H 7500 4150 30  0000 C CNN
@@ -238,7 +240,7 @@ F 3 "" H 7600 4850 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R?
+L R-RESCUE-trainer R?
 U 1 1 56563A40
 P 7600 5000
 F 0 "R?" V 7680 5000 50  0000 C CNN
@@ -260,9 +262,11 @@ F 3 "" H 7300 5150 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C C?
+L C-RESCUE-trainer C?
 U 1 1 56563A4E
 P 7600 5300
+AR Path="/56563A4E" Ref="C?"  Part="1" 
+AR Path="/5655FD48/56563A4E" Ref="C?"  Part="1" 
 F 0 "C?" H 7625 5400 50  0000 L CNN
 F 1 "C" H 7625 5200 50  0000 L CNN
 F 2 "10nF" H 7500 5200 30  0000 C CNN
@@ -297,7 +301,7 @@ F 3 "" H 10200 3800 60  0000 C CNN
 	-1   0    0    -1  
 $EndComp
 $Comp
-L R R?
+L R-RESCUE-trainer R?
 U 1 1 56563A63
 P 10200 3950
 F 0 "R?" V 10280 3950 50  0000 C CNN
@@ -319,9 +323,11 @@ F 3 "" H 10500 4100 60  0000 C CNN
 	-1   0    0    -1  
 $EndComp
 $Comp
-L C C?
+L C-RESCUE-trainer C?
 U 1 1 56563A71
 P 10200 4250
+AR Path="/56563A71" Ref="C?"  Part="1" 
+AR Path="/5655FD48/56563A71" Ref="C?"  Part="1" 
 F 0 "C?" H 10225 4350 50  0000 L CNN
 F 1 "C" H 10225 4150 50  0000 L CNN
 F 2 "10nF" H 10100 4150 30  0000 C CNN
@@ -356,7 +362,7 @@ F 3 "" H 10200 4850 60  0000 C CNN
 	-1   0    0    -1  
 $EndComp
 $Comp
-L R R?
+L R-RESCUE-trainer R?
 U 1 1 56563A86
 P 10200 5000
 F 0 "R?" V 10280 5000 50  0000 C CNN
@@ -378,9 +384,11 @@ F 3 "" H 10500 5150 60  0000 C CNN
 	-1   0    0    -1  
 $EndComp
 $Comp
-L C C?
+L C-RESCUE-trainer C?
 U 1 1 56563A94
 P 10200 5300
+AR Path="/56563A94" Ref="C?"  Part="1" 
+AR Path="/5655FD48/56563A94" Ref="C?"  Part="1" 
 F 0 "C?" H 10225 5400 50  0000 L CNN
 F 1 "C" H 10225 5200 50  0000 L CNN
 F 2 "10nF" H 10100 5200 30  0000 C CNN
@@ -877,7 +885,7 @@ F 3 "" H 5350 4750 60  0000 C CNN
 	-1   0    0    -1  
 $EndComp
 $Comp
-L R R?
+L R-RESCUE-trainer R?
 U 1 1 5657334B
 P 5350 4900
 F 0 "R?" V 5430 4900 50  0000 C CNN
@@ -899,9 +907,11 @@ F 3 "" H 5650 5050 60  0000 C CNN
 	-1   0    0    -1  
 $EndComp
 $Comp
-L C C?
+L C-RESCUE-trainer C?
 U 1 1 56573357
 P 5350 5200
+AR Path="/56573357" Ref="C?"  Part="1" 
+AR Path="/5655FD48/56573357" Ref="C?"  Part="1" 
 F 0 "C?" H 5375 5300 50  0000 L CNN
 F 1 "C" H 5375 5100 50  0000 L CNN
 F 2 "10nF" H 5250 5100 30  0000 C CNN
