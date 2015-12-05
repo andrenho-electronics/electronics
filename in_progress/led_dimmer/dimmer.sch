@@ -1,4 +1,5 @@
 EESchema Schematic File Version 2
+LIBS:dimmer-rescue
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -187,7 +188,7 @@ F 3 "" H 7050 4750 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L LM555N U1
+L LM555N-RESCUE-dimmer U1
 U 1 1 56741A2A
 P 5050 4000
 F 0 "U1" H 5050 4100 70  0000 C CNN
