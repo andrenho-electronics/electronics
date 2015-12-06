@@ -10,7 +10,7 @@
 
 static void initialize();
 static int voltage_level();
-static void set_led_pwm_level(n);
+static void set_led_pwm_level(int n);
 
 int main()
 {
@@ -23,15 +23,21 @@ int main()
 
 void initialize()
 {
+    // initialize PWM
+    DDRD |= (1 << PD3);                     // PWM output in PD3
+    TCCR0A = (1 << COM0A1) | (1 << WGM00);  // phase correct PWM mode
+    OCR0A = 0x10;                           // initial PWM pusle width
+    TCCR0B = (1 << CS01);                   // clock source = CLK/8, start PWM
 }
 
 
 int voltage_level()
 {
+    return 0;
 }
 
 
-void set_led_pwm_level(n)
+void set_led_pwm_level(int n)
 {
 }
 
