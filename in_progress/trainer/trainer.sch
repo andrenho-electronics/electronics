@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date 08/12/2015 11:18:57
+EESchema Schematic File Version 2
 LIBS:trainer-rescue
 LIBS:power
 LIBS:device
@@ -30,12 +30,11 @@ LIBS:atmel
 LIBS:contrib
 LIBS:valves
 LIBS:MiscellaneousDevices
-LIBS:ULN280xA
 LIBS:Gajda_cmosieee
 LIBS:jhd-162a
 LIBS:capteurs
 LIBS:trainer-cache
-EELAYER 27 0
+EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -359,14 +358,6 @@ Connection ~ 3250 2650
 Wire Wire Line
 	3500 3100 3500 2750
 Wire Wire Line
-	3000 4800 3100 4800
-Wire Wire Line
-	3000 4900 3100 4900
-Wire Wire Line
-	3000 5000 3100 5000
-Wire Wire Line
-	3000 5100 3100 5100
-Wire Wire Line
 	4000 3950 4000 6600
 Wire Wire Line
 	4000 4200 4200 4200
@@ -380,25 +371,25 @@ Wire Wire Line
 	4000 6600 4200 6600
 Connection ~ 4000 5800
 Wire Wire Line
-	4200 4800 3400 4800
+	4200 4800 3500 4800
 Wire Wire Line
 	4200 5600 3900 5600
 Wire Wire Line
 	3900 5600 3900 4900
 Wire Wire Line
-	3900 4900 3400 4900
+	3900 4900 3500 4900
 Wire Wire Line
 	4200 6400 3800 6400
 Wire Wire Line
 	3800 6400 3800 5000
 Wire Wire Line
-	3800 5000 3400 5000
+	3800 5000 3500 5000
 Wire Wire Line
 	4200 7200 3700 7200
 Wire Wire Line
 	3700 7200 3700 5100
 Wire Wire Line
-	3700 5100 3400 5100
+	3700 5100 3500 5100
 $Comp
 L GNDREF #PWR?
 U 1 1 565A1ACC

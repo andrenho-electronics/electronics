@@ -1,4 +1,4 @@
-update=10/12/2015 08:23:59
+update=Ter 08 Dez 2015 05:10:52 BRST
 version=1
 last_client=kicad
 [pcbnew]
@@ -23,8 +23,6 @@ ModuleOutlineThickness=0.150000000000
 [cvpcb]
 version=1
 NetIExt=net
-[general]
-version=1
 [schematic_editor]
 version=1
 PageLayoutDescrFile=
@@ -70,3 +68,5 @@ LibName28=contrib
 LibName29=valves
 LibName30=switch_dpdt
 LibName31=MiscellaneousDevices
+[general]
+version=1
