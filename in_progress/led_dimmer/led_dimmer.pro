@@ -1,4 +1,4 @@
-update=Sex 04 Dez 2015 23:21:02 BRST
+update=Sex 25 Dez 2015 19:27:35 BRST
 version=1
 last_client=kicad
 [pcbnew]
@@ -39,7 +39,7 @@ LabSize=60
 version=1
 LibDir=
 [eeschema/libraries]
-LibName1=dimmer-rescue
+LibName1=led_dimmer-rescue
 LibName2=power
 LibName3=device
 LibName4=transistors

@@ -111,7 +111,7 @@ F 3 "" H 7000 2800 60  0000 C CNN
 	1    7000 2800
 	0    -1   -1   0   
 $EndComp
-Text GLabel 2700 3100 0    60   Input ~ 0
+Text GLabel 2450 3700 0    60   Input ~ 0
 NEUTRAL
 $Comp
 L D D2
@@ -146,18 +146,18 @@ F 3 "" H 5950 3250 60  0000 C CNN
 	1    5950 3250
 	0    1    1    0   
 $EndComp
-Text GLabel 2700 2700 0    60   Input ~ 0
+Text GLabel 2450 2700 0    60   Input ~ 0
 LIVE
 $Comp
 L SWITCH_DPDT SW2
 U 1 1 565DFC34
-P 3450 2900
-F 0 "SW2" H 3450 3350 70  0000 C CNN
-F 1 "SWITCH_DPDT" H 3450 2450 70  0000 C CNN
-F 2 "" H 3450 2900 60  0000 C CNN
-F 3 "" H 3450 2900 60  0000 C CNN
-	1    3450 2900
-	1    0    0    -1  
+P 3450 2800
+F 0 "SW2" H 3450 3250 70  0000 C CNN
+F 1 "SWITCH_DPDT" H 3450 2350 70  0000 C CNN
+F 2 "" H 3450 2800 60  0000 C CNN
+F 3 "" H 3450 2800 60  0000 C CNN
+	1    3450 2800
+	-1   0    0    1   
 $EndComp
 $Comp
 L FUSE F1
@@ -181,40 +181,14 @@ F 3 "" H 5100 2250 30  0000 C CNN
 	1    5100 2250
 	0    1    1    0   
 $EndComp
-Text GLabel 9000 2700 2    60   Input ~ 0
+NoConn ~ 2950 3100
+NoConn ~ 2950 2500
+Text GLabel 2450 3450 0    60   Input ~ 0
 TO_BELL
-Text GLabel 9000 2850 2    60   Input ~ 0
-TO_BELL
-NoConn ~ 3950 2800
-NoConn ~ 3950 3200
-$Comp
-L RELAY_SPDT S?
-U 1 1 566967E3
-P 8100 2850
-F 0 "S?" H 8100 2550 60  0000 C CNN
-F 1 "RELAY_SPDT" H 8100 2450 60  0000 C CNN
-F 2 "" H 8100 2850 60  0000 C CNN
-F 3 "" H 8100 2850 60  0000 C CNN
-	1    8100 2850
-	1    0    0    -1  
-$EndComp
-NoConn ~ 8550 3000
-Wire Wire Line
-	5000 3000 3950 3000
-Wire Wire Line
-	2700 3100 2950 3100
 Wire Wire Line
 	3950 2600 4250 2600
 Wire Wire Line
-	2700 2700 2950 2700
-Wire Wire Line
-	8550 2850 9000 2850
-Connection ~ 7000 3400
-Wire Wire Line
-	7550 3400 7550 3150
-Connection ~ 7000 2300
-Wire Wire Line
-	7550 2300 7550 2550
+	2450 2700 2950 2700
 Connection ~ 5300 2600
 Wire Wire Line
 	5300 2250 5300 2600
@@ -234,21 +208,13 @@ Connection ~ 6300 3400
 Wire Wire Line
 	6700 3400 6700 3000
 Connection ~ 6700 2300
-Wire Wire Line
-	7000 2300 7000 2600
 Connection ~ 6300 2300
 Wire Wire Line
 	6700 2300 6700 2600
-Connection ~ 5950 3400
 Wire Wire Line
 	6300 3400 6300 2950
-Connection ~ 5950 2300
 Wire Wire Line
 	6300 2300 6300 2650
-Wire Wire Line
-	5650 3400 7550 3400
-Wire Wire Line
-	5650 2300 7550 2300
 Wire Wire Line
 	5650 2600 5650 3100
 Connection ~ 5950 3000
@@ -259,25 +225,25 @@ Wire Wire Line
 Wire Wire Line
 	5250 2600 5650 2600
 Wire Wire Line
-	8550 2700 9000 2700
-Wire Notes Line
-	7200 3650 7200 1950
-Wire Notes Line
-	7200 1950 2850 1950
-Wire Notes Line
-	2850 1950 2850 3650
-Wire Notes Line
-	2850 3650 7200 3650
-Wire Notes Line
-	7350 1950 7350 3650
-Wire Notes Line
-	7350 3650 8750 3650
-Wire Notes Line
-	8750 3650 8750 1950
-Wire Notes Line
-	8750 1950 7350 1950
-Text Notes 3100 3800 2    60   ~ 0
-Box 1
-Text Notes 7650 3800 2    60   ~ 0
-Box 2
+	7000 2300 7000 2600
+Wire Wire Line
+	5650 2300 7000 2300
+Connection ~ 5950 2300
+Wire Wire Line
+	5650 3400 7000 3400
+Connection ~ 5950 3400
+Wire Wire Line
+	5000 3000 4500 3000
+Wire Wire Line
+	4500 3000 4500 3700
+Wire Wire Line
+	4500 3700 2450 3700
+Wire Wire Line
+	2450 2900 2950 2900
+Wire Wire Line
+	2450 3450 3950 3450
+Wire Wire Line
+	3950 3450 3950 3000
+Text GLabel 2450 2900 0    60   Input ~ 0
+FROM_BELL
 $EndSCHEMATC

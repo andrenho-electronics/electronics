@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date 08/12/2015 11:18:57
+EESchema Schematic File Version 2
 LIBS:trainer-rescue
 LIBS:power
 LIBS:device
@@ -30,12 +30,11 @@ LIBS:atmel
 LIBS:contrib
 LIBS:valves
 LIBS:MiscellaneousDevices
-LIBS:ULN280xA
 LIBS:Gajda_cmosieee
 LIBS:jhd-162a
 LIBS:capteurs
 LIBS:trainer-cache
-EELAYER 27 0
+EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -573,74 +572,10 @@ Wire Wire Line
 Wire Wire Line
 	6400 4700 7050 4700
 Wire Wire Line
-	8550 2750 8850 2750
-Wire Wire Line
-	8550 2850 8850 2850
-Wire Wire Line
-	8550 2950 8850 2950
-Wire Wire Line
-	8550 3050 8850 3050
-Wire Wire Line
-	8550 3150 8850 3150
-Wire Wire Line
-	8550 3250 8850 3250
-Wire Wire Line
-	8550 3350 8850 3350
-Wire Wire Line
-	8550 3450 8850 3450
-Wire Wire Line
-	8550 4000 8850 4000
-Wire Wire Line
-	8550 4100 8850 4100
-Wire Wire Line
-	8550 4200 8850 4200
-Wire Wire Line
-	8550 4300 8850 4300
-Wire Wire Line
-	8550 4400 8850 4400
-Wire Wire Line
-	8550 4500 8850 4500
-Wire Wire Line
-	8550 4600 8850 4600
-Wire Wire Line
-	8550 4700 8850 4700
-Wire Wire Line
 	8550 3550 8600 3550
 Wire Wire Line
 	8600 4800 8550 4800
 Connection ~ 8600 3550
-Wire Wire Line
-	9400 2750 9150 2750
-Wire Wire Line
-	9400 2850 9150 2850
-Wire Wire Line
-	9400 2950 9150 2950
-Wire Wire Line
-	9400 3050 9150 3050
-Wire Wire Line
-	9400 3150 9150 3150
-Wire Wire Line
-	9400 3250 9150 3250
-Wire Wire Line
-	9400 3350 9150 3350
-Wire Wire Line
-	9400 3450 9150 3450
-Wire Wire Line
-	9400 4000 9150 4000
-Wire Wire Line
-	9400 4100 9150 4100
-Wire Wire Line
-	9400 4200 9150 4200
-Wire Wire Line
-	9400 4300 9150 4300
-Wire Wire Line
-	9400 4400 9150 4400
-Wire Wire Line
-	9400 4500 9150 4500
-Wire Wire Line
-	9400 4600 9150 4600
-Wire Wire Line
-	9400 4700 9150 4700
 Wire Wire Line
 	9950 2750 9800 2750
 Wire Wire Line
@@ -733,4 +668,68 @@ Wire Wire Line
 	3100 3850 3100 4600
 Wire Wire Line
 	3000 3850 3000 4600
+Wire Wire Line
+	9250 3450 9400 3450
+Wire Wire Line
+	9250 3350 9400 3350
+Wire Wire Line
+	9250 3250 9400 3250
+Wire Wire Line
+	9250 3150 9400 3150
+Wire Wire Line
+	9250 3050 9400 3050
+Wire Wire Line
+	9250 2950 9400 2950
+Wire Wire Line
+	9250 2850 9400 2850
+Wire Wire Line
+	9250 2750 9400 2750
+Wire Wire Line
+	8550 3350 8750 3350
+Wire Wire Line
+	8550 3250 8750 3250
+Wire Wire Line
+	8550 3150 8750 3150
+Wire Wire Line
+	8550 3050 8750 3050
+Wire Wire Line
+	8550 2950 8750 2950
+Wire Wire Line
+	8550 2850 8750 2850
+Wire Wire Line
+	8550 2750 8750 2750
+Wire Wire Line
+	8750 3450 8550 3450
+Wire Wire Line
+	8550 4000 8750 4000
+Wire Wire Line
+	8550 4100 8750 4100
+Wire Wire Line
+	8550 4200 8750 4200
+Wire Wire Line
+	8550 4300 8750 4300
+Wire Wire Line
+	8550 4400 8750 4400
+Wire Wire Line
+	8550 4500 8750 4500
+Wire Wire Line
+	8550 4600 8750 4600
+Wire Wire Line
+	8550 4700 8750 4700
+Wire Wire Line
+	9250 4000 9400 4000
+Wire Wire Line
+	9250 4100 9400 4100
+Wire Wire Line
+	9400 4200 9250 4200
+Wire Wire Line
+	9250 4300 9400 4300
+Wire Wire Line
+	9400 4400 9250 4400
+Wire Wire Line
+	9250 4500 9400 4500
+Wire Wire Line
+	9400 4600 9250 4600
+Wire Wire Line
+	9250 4700 9400 4700
 $EndSCHEMATC

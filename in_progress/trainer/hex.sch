@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date 08/12/2015 11:18:57
+EESchema Schematic File Version 2
 LIBS:trainer-rescue
 LIBS:power
 LIBS:device
@@ -30,12 +30,11 @@ LIBS:atmel
 LIBS:contrib
 LIBS:valves
 LIBS:MiscellaneousDevices
-LIBS:ULN280xA
 LIBS:Gajda_cmosieee
 LIBS:jhd-162a
 LIBS:capteurs
 LIBS:trainer-cache
-EELAYER 27 0
+EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -292,9 +291,11 @@ F 3 "" H 9450 2200 30  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L PN2222A Q?
+L PN2222A-RESCUE-trainer Q?
 U 1 1 5666DB86
 P 7150 3900
+AR Path="/5666DB86" Ref="Q?"  Part="1" 
+AR Path="/565EDE3C/5666DB86" Ref="Q?"  Part="1" 
 F 0 "Q?" H 7150 3752 40  0000 R CNN
 F 1 "2N3904" H 7150 4050 40  0000 R CNN
 F 2 "TO92" H 7050 4002 29  0000 C CNN
@@ -347,9 +348,11 @@ F 3 "" H 6400 4200 30  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L PN2222A Q?
+L PN2222A-RESCUE-trainer Q?
 U 1 1 5666DCFF
 P 7150 4400
+AR Path="/5666DCFF" Ref="Q?"  Part="1" 
+AR Path="/565EDE3C/5666DCFF" Ref="Q?"  Part="1" 
 F 0 "Q?" H 7150 4252 40  0000 R CNN
 F 1 "2N3904" H 7150 4550 40  0000 R CNN
 F 2 "TO92" H 7050 4502 29  0000 C CNN
@@ -358,9 +361,11 @@ F 3 "~" H 7150 4400 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L PN2222A Q?
+L PN2222A-RESCUE-trainer Q?
 U 1 1 5666DD05
 P 7150 4900
+AR Path="/5666DD05" Ref="Q?"  Part="1" 
+AR Path="/565EDE3C/5666DD05" Ref="Q?"  Part="1" 
 F 0 "Q?" H 7150 4752 40  0000 R CNN
 F 1 "2N3904" H 7150 5050 40  0000 R CNN
 F 2 "TO92" H 7050 5002 29  0000 C CNN
@@ -369,9 +374,11 @@ F 3 "~" H 7150 4900 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L PN2222A Q?
+L PN2222A-RESCUE-trainer Q?
 U 1 1 5666DD0B
 P 7150 5400
+AR Path="/5666DD0B" Ref="Q?"  Part="1" 
+AR Path="/565EDE3C/5666DD0B" Ref="Q?"  Part="1" 
 F 0 "Q?" H 7150 5252 40  0000 R CNN
 F 1 "2N3904" H 7150 5550 40  0000 R CNN
 F 2 "TO92" H 7050 5502 29  0000 C CNN
@@ -441,9 +448,7 @@ Wire Wire Line
 Wire Wire Line
 	3250 4200 3250 4400
 Wire Wire Line
-	4800 2050 4800 2150
-Wire Wire Line
-	4800 2150 4800 2500
+	4800 2050 4800 2500
 Wire Wire Line
 	4800 2500 3650 2500
 Wire Wire Line
@@ -498,13 +503,7 @@ Wire Wire Line
 Wire Wire Line
 	7250 3700 7450 3700
 Wire Wire Line
-	7450 3450 7450 3700
-Wire Wire Line
-	7450 3700 7450 4200
-Wire Wire Line
-	7450 4200 7450 4700
-Wire Wire Line
-	7450 4700 7450 5200
+	7450 3450 7450 5200
 Wire Wire Line
 	7450 4200 7250 4200
 Connection ~ 7450 3700
