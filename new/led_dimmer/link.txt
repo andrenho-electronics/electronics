@@ -1,0 +1,1 @@
+http://electronics.stackexchange.com/questions/55477/using-a-variable-resistor-to-dim-an-led
