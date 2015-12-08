@@ -1,6 +1,6 @@
-update=01/12/2015 17:20:30
+update=Sex 04 Dez 2015 22:36:31 BRST
 version=1
-last_client=kicad
+last_client=eeschema
 [pcbnew]
 version=1
 LastNetListRead=
@@ -25,9 +25,24 @@ version=1
 NetIExt=net
 [general]
 version=1
+[schematic_editor]
+version=1
+PageLayoutDescrFile=
+PlotDirectoryName=
+SubpartIdSeparator=0
+SubpartFirstId=65
+NetFmtName=
+SpiceForceRefPrefix=0
+SpiceUseNetNumbers=0
+LabSize=60
 [eeschema]
 version=1
 LibDir=
+NetFmtName=
+RptD_X=0
+RptD_Y=100
+RptLab=1
+LabSize=60
 [eeschema/libraries]
 LibName1=power
 LibName2=device
@@ -59,13 +74,3 @@ LibName27=atmel
 LibName28=contrib
 LibName29=valves
 LibName30=switch_dpdt
-[schematic_editor]
-version=1
-PageLayoutDescrFile=
-PlotDirectoryName=
-SubpartIdSeparator=0
-SubpartFirstId=65
-NetFmtName=
-SpiceForceRefPrefix=0
-SpiceUseNetNumbers=0
-LabSize=60
