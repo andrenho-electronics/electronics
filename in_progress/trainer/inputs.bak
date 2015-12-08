@@ -161,11 +161,7 @@ Wire Wire Line
 Wire Wire Line
 	8550 1200 8550 2150
 Wire Wire Line
-	8700 2400 9050 2400
-Wire Wire Line
-	9050 2400 9400 2400
-Wire Wire Line
-	9400 2400 9750 2400
+	8700 2400 9750 2400
 Connection ~ 9050 2400
 Connection ~ 9400 2400
 Wire Wire Line
@@ -982,9 +978,7 @@ F 3 "" H 4900 5200 60  0000 C CNN
 	-1   0    0    1   
 $EndComp
 Wire Wire Line
-	4450 4250 4450 4350
-Wire Wire Line
-	4450 4350 4450 5200
+	4450 4250 4450 5200
 Connection ~ 4450 4350
 Wire Wire Line
 	4450 3350 4450 1250
