@@ -232,7 +232,7 @@ F 3 "" H 2700 3450 60  0000 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L C C3
+L C-RESCUE-led_dimmer C3
 U 1 1 567D3309
 P 2950 3650
 F 0 "C3" H 2950 3750 40  0000 L CNN
@@ -243,7 +243,7 @@ F 3 "" H 2950 3650 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C C2
+L C-RESCUE-led_dimmer C2
 U 1 1 567D336C
 P 2400 3650
 F 0 "C2" H 2400 3750 40  0000 L CNN
@@ -254,7 +254,7 @@ F 3 "" H 2400 3650 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR3
+L GND-RESCUE-led_dimmer #PWR3
 U 1 1 567D33C8
 P 2400 3850
 F 0 "#PWR3" H 2400 3850 30  0001 C CNN
@@ -265,7 +265,7 @@ F 3 "" H 2400 3850 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR5
+L GND-RESCUE-led_dimmer #PWR5
 U 1 1 567D3407
 P 2950 3850
 F 0 "#PWR5" H 2950 3850 30  0001 C CNN
@@ -276,7 +276,7 @@ F 3 "" H 2950 3850 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L CP1 C5
+L CP1-RESCUE-led_dimmer C5
 U 1 1 567D430D
 P 6500 3500
 F 0 "C5" H 6550 3600 50  0000 L CNN
@@ -287,7 +287,7 @@ F 3 "" H 6500 3500 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR11
+L GND-RESCUE-led_dimmer #PWR11
 U 1 1 567D4375
 P 6500 3700
 F 0 "#PWR11" H 6500 3700 30  0001 C CNN
@@ -320,7 +320,7 @@ F 3 "" H 5550 1800 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R3
+L R-RESCUE-led_dimmer R3
 U 1 1 567D5281
 P 6900 2250
 F 0 "R3" V 6980 2250 40  0000 C CNN
@@ -331,7 +331,7 @@ F 3 "" H 6900 2250 30  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L R R2
+L R-RESCUE-led_dimmer R2
 U 1 1 567D54F3
 P 6100 3250
 F 0 "R2" V 6180 3250 40  0000 C CNN
@@ -364,7 +364,7 @@ F 3 "" H 7200 3750 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR13
+L GND-RESCUE-led_dimmer #PWR13
 U 1 1 567D67D2
 P 7200 4550
 F 0 "#PWR13" H 7200 4550 30  0001 C CNN
@@ -652,7 +652,7 @@ F 3 "" H 4600 2450 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C C4
+L C-RESCUE-led_dimmer C4
 U 1 1 567DCE8B
 P 4600 2250
 F 0 "C4" H 4600 2350 40  0000 L CNN
@@ -663,7 +663,7 @@ F 3 "" H 4600 2250 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L CP1 C1
+L CP1-RESCUE-led_dimmer C1
 U 1 1 567DD8B7
 P 1200 4050
 F 0 "C1" H 1250 4150 50  0000 L CNN
