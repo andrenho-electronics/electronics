@@ -1,6 +1,6 @@
-update=02/12/2015 09:46:50
+update=08/12/2015 11:20:07
 version=1
-last_client=kicad
+last_client=eeschema
 [cvpcb]
 version=1
 NetIExt=net
@@ -45,9 +45,24 @@ LibName15=pga_sockets
 LibName16=valves
 [general]
 version=1
+[schematic_editor]
+version=1
+PageLayoutDescrFile=
+PlotDirectoryName=
+SubpartIdSeparator=0
+SubpartFirstId=65
+NetFmtName=
+SpiceForceRefPrefix=0
+SpiceUseNetNumbers=0
+LabSize=60
 [eeschema]
 version=1
 LibDir=../trainer
+NetFmtName=
+RptD_X=0
+RptD_Y=100
+RptLab=1
+LabSize=60
 [eeschema/libraries]
 LibName1=trainer-rescue
 LibName2=power
@@ -84,13 +99,3 @@ LibName32=C:/andre/projects/electronics/new/trainer/ULN280xA
 LibName33=Gajda_cmosieee
 LibName34=jhd-162a
 LibName35=capteurs
-[schematic_editor]
-version=1
-PageLayoutDescrFile=
-PlotDirectoryName=
-SubpartIdSeparator=0
-SubpartFirstId=65
-NetFmtName=
-SpiceForceRefPrefix=0
-SpiceUseNetNumbers=0
-LabSize=60
