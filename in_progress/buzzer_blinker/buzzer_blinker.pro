@@ -1,6 +1,6 @@
-update=Sex 04 Dez 2015 22:36:31 BRST
+update=10/12/2015 08:23:59
 version=1
-last_client=eeschema
+last_client=kicad
 [pcbnew]
 version=1
 LastNetListRead=
@@ -38,11 +38,6 @@ LabSize=60
 [eeschema]
 version=1
 LibDir=
-NetFmtName=
-RptD_X=0
-RptD_Y=100
-RptLab=1
-LabSize=60
 [eeschema/libraries]
 LibName1=power
 LibName2=device
@@ -74,3 +69,4 @@ LibName27=atmel
 LibName28=contrib
 LibName29=valves
 LibName30=switch_dpdt
+LibName31=MiscellaneousDevices

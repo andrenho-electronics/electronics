@@ -1,6 +1,6 @@
-update=08/12/2015 11:20:07
+update=10/12/2015 08:23:21
 version=1
-last_client=eeschema
+last_client=kicad
 [cvpcb]
 version=1
 NetIExt=net
@@ -58,11 +58,6 @@ LabSize=60
 [eeschema]
 version=1
 LibDir=../trainer
-NetFmtName=
-RptD_X=0
-RptD_Y=100
-RptLab=1
-LabSize=60
 [eeschema/libraries]
 LibName1=trainer-rescue
 LibName2=power
