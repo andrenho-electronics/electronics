@@ -4,7 +4,9 @@
 // HEADERS
 //
 
+#include <stdbool.h>
 #include <stdint.h>
+
 #include <avr/interrupt.h>
 #include <avr/io.h>
 #include <avr/sleep.h>
@@ -45,6 +47,7 @@
 //
 
 int current_digit = 0;
+uint16_t number = 0xABCD;
 
 
 //
@@ -68,9 +71,29 @@ static void initialize_7seg()
     TIMSK = (1 << OCIE0);   // fire interrupts
 }
 
+
 //
 // 7 SEGMENT DISPLAY MANIPULATION
 //
+
+uint8_t digit_value(uint8_t digit, uint16_t n, bool decimal, bool* error)
+{
+    *error = false;
+
+    uint32_t v = number;
+    if(!decimal) {
+        v >>= (8 * digit);
+        v &= 0xF;
+    } else {
+        if(v > 9999) {
+            *error = true;
+            return 0;
+        }
+        for(int i=0; i<digit; ++i) { v /= 10; }
+        v %= 10;
+    }       
+    return (uint8_t)v;
+}
 
 void set_digit_output(uint8_t digit, uint8_t value)
 {
@@ -93,6 +116,7 @@ void set_digit_output(uint8_t digit, uint8_t value)
     case 0xD: LEDS |= (1<<LED_B)|(1<<LED_C)|(1<<LED_D)|(1<<LED_E)|(1<<LED_G); break;
     case 0xE: LEDS |= (1<<LED_A)|(1<<LED_D)|(1<<LED_E)|(1<<LED_F)|(1<<LED_G); break;
     case 0xF: LEDS |= (1<<LED_A)|(1<<LED_E)|(1<<LED_F)|(1<<LED_G); break;
+    case '-': LEDS |= (1<<LED_G); break;
     }
 
     switch(digit) {
@@ -138,7 +162,15 @@ int main()
 //
 ISR(TIMER0_COMP_vect)
 {
-    set_digit_output(current_digit++, 0);
+    bool error = false;
+    uint8_t v = digit_value(current_digit, number, false, &error);
+    if(error) {
+        set_digit_output(current_digit, '-');
+    } else {
+        set_digit_output(current_digit, v);
+    }
+
+    ++current_digit;
     if(current_digit > 3) {
         current_digit = 0;
     }
