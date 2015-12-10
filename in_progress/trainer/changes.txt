@@ -5,10 +5,9 @@ PB3 -> PA3  (hex-dec switch)
 
 Remove ULN2308 for inputs (ok)
 
-SPI communication
+SPI communication (ok)
 
 Add up/down buttons (scroll)
-Add I²C / SPI select button (?)
 
 Why is the 4067 showing 8080 when port 15 (pin 16) is 1?
 

@@ -43,7 +43,6 @@
 
 #define HEX_DEC() (PINA & (1 << PA3))
 
-// ps. the following ports are inverted!
 #define set_S0(n) { if(n) { PORTD |= (1 << PD3); } else { PORTD &= ~(1 << PD3); } }
 #define set_S1(n) { if(n) { PORTD |= (1 << PD2); } else { PORTD &= ~(1 << PD2); } }
 #define set_S2(n) { if(n) { PORTB |= (1 << PB1); } else { PORTB &= ~(1 << PB1); } }
@@ -348,6 +347,9 @@ int main()
     DDRB = 0b11111011;    // PB0..3 = inputs
     DDRC = 0b11111111;
     DDRD = 0b11111111;
+
+    // setup pull-up resistors
+    PORTA |= (1 << PORTA3);
 
     initialize_7seg();
     initialize_display();
