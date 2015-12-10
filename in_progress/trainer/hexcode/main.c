@@ -63,6 +63,7 @@
 #define RS()  (((PINC & (1 << PC5))) == 0 ? 0 : 1)
 #define DB7() (((PINC & (1 << PC0))) == 0 ? 0 : 1)
 
+
 // 
 // GLOBAL VARIABLES
 //
@@ -250,7 +251,6 @@ static void initialize_display()
     display_toggle_E(); _delay_ms(50);
     display_toggle_E(); _delay_ms(50);
     display_toggle_E(); _delay_ms(50);
-    //display_wait_for_busy();
 
     // set interface to be 4bit wide
     set_RS(0);
@@ -258,7 +258,6 @@ static void initialize_display()
     set_DB(0b0010);
     display_toggle_E();
     _delay_us(40);
-    //display_wait_for_busy();
 
     // data length 4 bit, 16x2 display, font 5x8
     display_write(0, 0b00101000);
@@ -275,12 +274,45 @@ static void initialize_display()
     _delay_ms(2);
 
     // write data
+    /*
     display_write(1, 'H');
     display_write(1, 'e');
     display_write(1, 'l');
     display_write(1, 'l');
     display_write(1, 'o');
     display_write(1, '!');
+    */
+}
+
+
+//
+// UART SERIAL COMMUNICATION
+//
+
+#define BAUD 2400
+#define BAUDRATE ((F_CPU)/(BAUD*16UL)-1)
+
+static void initialize_uart()
+{
+    // initialize UART
+    UBRRH = (BAUDRATE >> 8);                // set baud rate 
+    UBRRL = BAUDRATE;                       
+    UCSRB |= (1 << TXEN) | (1 << RXEN);     // enable TX and RX ports
+    UCSRC |= (1 << URSEL) | (1 << UCSZ0) | (1 << UCSZ1);  // 8 bit data format
+    UCSRB |= (1 << RXCIE);                  // enable RX interrupt
+}
+
+
+static void uart_byte_received(char byte)
+{
+    switch(byte) {
+        // TODO
+        default:
+            display_write(1, byte);
+    }
+
+    // TODO: we want to create a buffer, so that we don't spend a lot of time
+    // here in the interrupt
 }
 
 
@@ -288,12 +320,18 @@ static void initialize_display()
 // INTERRUPTS
 //
 
-ISR(TIMER0_COMP_vect)
+ISR(TIMER0_COMP_vect)  // called when the timer is due
 {
     if(current_digit == 0) {
         read_user_input();
     }
     update_timer();
+}
+
+
+ISR(USART_RXC_vect)   // called when one byte is received on the RX line
+{
+    uart_byte_received(UDR);
 }
 
 
@@ -313,6 +351,7 @@ int main()
 
     initialize_7seg();
     initialize_display();
+    initialize_uart();
     sei();
 
     for(;;) {
