@@ -33,6 +33,8 @@
 #define LED_F PA4
 #define LED_G PA6
 
+#define NUM_LINES 30
+
 //
 // MACROS
 //
@@ -69,6 +71,12 @@
 
 int current_digit = 0;
 uint16_t number = 0x0;
+struct Display {
+    char line[NUM_LINES][16];
+    char current[2][16];
+    int current_line;
+    bool dirty;
+} display;
 
 
 //
