@@ -1,7 +1,10 @@
-#define F_CPU 4000000UL
+#define F_CPU 1000000UL
+
+//
+// HEADERS
+//
 
 #include <stdint.h>
-
 #include <avr/interrupt.h>
 #include <avr/io.h>
 #include <avr/sleep.h>
@@ -9,76 +12,87 @@
 #include <util/delay.h>
 
 
-#define PIEZO PORTD5
+//
+// DEFINITIONS
+//
 
-#define DIGITS PORTD
-#define DIGIT_0 PORTD5
-#define DIGIT_1 PORTD4
-#define DIGIT_2 PORTD3
-#define DIGIT_3 PORTD2
+#define DIGITS PORTB
+#define DIGIT_0 PORTB4
+#define DIGIT_1 PORTB5
+#define DIGIT_2 PORTB6
+#define DIGIT_3 PORTB7
 
-#define LEDS PORTB
-#define LED_A PORTB2
-#define LED_B PORTB0
-#define LED_C PORTB4
-#define LED_D PORTB5
-#define LED_E PORTB6
-#define LED_F PORTB1
-#define LED_G PORTB3
+#define LEDS PORTA
+#define LED_A PORTA2
+#define LED_B PORTA7
+#define LED_C PORTA5
+#define LED_D PORTA1
+#define LED_E PORTA0
+#define LED_F PORTA4
+#define LED_G PORTA6
+
+
+//
+// MACROS
+//
+
+#define DEBUG(n) { if(n) { PORTD |= (1 << PD4); } else { PORTD &= ~(1 << PD4); } }
+#define DEBUG_TOGGLE() { PORTD ^= (1 << PD4); }
+
+
+// 
+// GLOBAL VARIABLES
+//
+
+int current_digit = 0;
+
+
+//
+// INITIALIZATION
+//
+
+static void initialize_ports()
+{
+    DDRA = 0b11111111;
+    DDRB = 0b00001111;
+}
+
+static void initialize_7seg()
+{
+    // setup a timer with a frequency of 300 Hz
+    // (using a prescaler of 256, we call the interrupt at each 12 ticks)
+
+    TCCR0 = (1 << CS02);    // prescaler 256
+    TCCR0 |= (1 << WGM01);  // CTC mode
+    OCR0 = 12;              // number of ticks
+    TIMSK = (1 << OCIE0);   // fire interrupts
+}
+
+//
+// 7 SEGMENT DISPLAY MANIPULATION
+//
 
 void set_digit_output(uint8_t digit, uint8_t value)
 {
-    LEDS = 0;
+    LEDS = 0;  // clear leds
 
     switch(value) {
-    case 0x0:
-        LEDS |= (1<<LED_A)|(1<<LED_B)|(1<<LED_C)|(1<<LED_D)|(1<<LED_E)|(1<<LED_F);
-        break;
-    case 0x1:
-        LEDS |= (1<<LED_B)|(1<<LED_C);
-        break;
-    case 0x2:
-        LEDS |= (1<<LED_A)|(1<<LED_B)|(1<<LED_D)|(1<<LED_E)|(1<<LED_G);
-        break;
-    case 0x3:
-        LEDS |= (1<<LED_A)|(1<<LED_B)|(1<<LED_C)|(1<<LED_D)|(1<<LED_G);
-        break;
-    case 0x4:
-        LEDS |= (1<<LED_A)|(1<<LED_B)|(1<<LED_C)|(1<<LED_F)|(1<<LED_G);
-        break;
-    case 0x5:
-        LEDS |= (1<<LED_A)|(1<<LED_C)|(1<<LED_D)|(1<<LED_F)|(1<<LED_G);
-        break;
-    case 0x6:
-        LEDS |= (1<<LED_A)|(1<<LED_C)|(1<<LED_D)|(1<<LED_E)|(1<<LED_F)|(1<<LED_G);
-        break;
-    case 0x7:
-        LEDS |= (1<<LED_A)|(1<<LED_B)|(1<<LED_C);
-        break;
-    case 0x8:
-        LEDS |= (1<<LED_A)|(1<<LED_B)|(1<<LED_C)|(1<<LED_D)|(1<<LED_E)|(1<<LED_F)|(1<<LED_G);
-        break;
-    case 0x9:
-        LEDS |= (1<<LED_A)|(1<<LED_B)|(1<<LED_C)|(1<<LED_D)|(1<<LED_F)|(1<<LED_G);
-        break;
-    case 0xA:
-        LEDS |= (1<<LED_A)|(1<<LED_B)|(1<<LED_C)|(1<<LED_E)|(1<<LED_F)|(1<<LED_G);
-        break;
-    case 0xB:
-        LEDS |= (1<<LED_C)|(1<<LED_D)|(1<<LED_E)|(1<<LED_F)|(1<<LED_G);
-        break;
-    case 0xC:
-        LEDS |= (1<<LED_A)|(1<<LED_D)|(1<<LED_E)|(1<<LED_F);
-        break;
-    case 0xD:
-        LEDS |= (1<<LED_B)|(1<<LED_C)|(1<<LED_D)|(1<<LED_E)|(1<<LED_G);
-        break;
-    case 0xE:
-        LEDS |= (1<<LED_A)|(1<<LED_D)|(1<<LED_E)|(1<<LED_F)|(1<<LED_G);
-        break;
-    case 0xF:
-        LEDS |= (1<<LED_A)|(1<<LED_E)|(1<<LED_F)|(1<<LED_G);
-        break;
+    case 0x0: LEDS |= (1<<LED_A)|(1<<LED_B)|(1<<LED_C)|(1<<LED_D)|(1<<LED_E)|(1<<LED_F); break;
+    case 0x1: LEDS |= (1<<LED_B)|(1<<LED_C); break;
+    case 0x2: LEDS |= (1<<LED_A)|(1<<LED_B)|(1<<LED_D)|(1<<LED_E)|(1<<LED_G); break;
+    case 0x3: LEDS |= (1<<LED_A)|(1<<LED_B)|(1<<LED_C)|(1<<LED_D)|(1<<LED_G); break;
+    case 0x4: LEDS |= (1<<LED_A)|(1<<LED_B)|(1<<LED_C)|(1<<LED_F)|(1<<LED_G); break;
+    case 0x5: LEDS |= (1<<LED_A)|(1<<LED_C)|(1<<LED_D)|(1<<LED_F)|(1<<LED_G); break;
+    case 0x6: LEDS |= (1<<LED_A)|(1<<LED_C)|(1<<LED_D)|(1<<LED_E)|(1<<LED_F)|(1<<LED_G); break;
+    case 0x7: LEDS |= (1<<LED_A)|(1<<LED_B)|(1<<LED_C); break;
+    case 0x8: LEDS |= (1<<LED_A)|(1<<LED_B)|(1<<LED_C)|(1<<LED_D)|(1<<LED_E)|(1<<LED_F)|(1<<LED_G); break;
+    case 0x9: LEDS |= (1<<LED_A)|(1<<LED_B)|(1<<LED_C)|(1<<LED_D)|(1<<LED_F)|(1<<LED_G); break;
+    case 0xA: LEDS |= (1<<LED_A)|(1<<LED_B)|(1<<LED_C)|(1<<LED_E)|(1<<LED_F)|(1<<LED_G); break;
+    case 0xB: LEDS |= (1<<LED_C)|(1<<LED_D)|(1<<LED_E)|(1<<LED_F)|(1<<LED_G); break;
+    case 0xC: LEDS |= (1<<LED_A)|(1<<LED_D)|(1<<LED_E)|(1<<LED_F); break;
+    case 0xD: LEDS |= (1<<LED_B)|(1<<LED_C)|(1<<LED_D)|(1<<LED_E)|(1<<LED_G); break;
+    case 0xE: LEDS |= (1<<LED_A)|(1<<LED_D)|(1<<LED_E)|(1<<LED_F)|(1<<LED_G); break;
+    case 0xF: LEDS |= (1<<LED_A)|(1<<LED_E)|(1<<LED_F)|(1<<LED_G); break;
     }
 
     switch(digit) {
@@ -101,20 +115,34 @@ void set_digit_output(uint8_t digit, uint8_t value)
     }
 }
 
+
+//
+// MAIN PROCEDURE
+//
+
 int main()
 {
-    _delay_ms(500);
+    initialize_ports();
+    initialize_7seg();
+    sei();
 
     for(;;) {
-        for(uint8_t d=0; d<=3; ++d) {
-            for(uint8_t i=0; i<=0xf; ++i) {
-                set_digit_output(d, i);
-                _delay_ms(200);
-            }
-        }
+        DEBUG_TOGGLE();
+        _delay_ms(500);
     }
-
-    return 0;
 }
+
+
+//
+// INTERRUPTS
+//
+ISR(TIMER0_COMP_vect)
+{
+    set_digit_output(current_digit++, 0);
+    if(current_digit > 3) {
+        current_digit = 0;
+    }
+}
+
 
 // vim: ts=4:sw=4:sts=4:expandtab
