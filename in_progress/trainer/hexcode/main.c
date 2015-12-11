@@ -274,9 +274,20 @@ static void initialize_display()
 //
 
 #define NUM_LINES 60
+
 struct Display {
+    int backscroll;
     char lines[NUM_LINES][17];
-} display;
+    int cursor_x, cursor_y;
+    bool dirty;
+} display = {
+    .backscroll = 0,
+    .lines = {{ 0 }},
+    .cursor_x = 0,
+    .cursor_y = 0,
+    .dirty = true,
+};
+
 
 static void initialize_scroll_buttons()
 {
@@ -285,7 +296,30 @@ static void initialize_scroll_buttons()
 }
 
 
+static void initialize_display_updater()
+{
+    // setup a timer with a frequency of 10 Hz
+    // (using a prescaler of 64, we call the interrupt at each 155 ticks)
+    // this interrupt will update the display
+
+    TCCR2 = (1 << CS21) | (1 << CS22);  // prescaler 64
+    TCCR2 |= (1 << WGM21);              // CTC mode
+    OCR2 = 155;                         // number of ticks
+    TIMSK = (1 << OCIE2);               // fire interrupts
+
+    // TODO - remove this test
+    display.lines[NUM_LINES-2][0] = 'A';
+    display.lines[NUM_LINES-2][1] = 'n';
+}
+
+
 static void display_scroll(int n)
+{
+    // TODO
+}
+
+
+static void display_update()
 {
     // TODO
 }
@@ -326,7 +360,7 @@ static void uart_byte_received(char byte)
 // INTERRUPTS
 //
 
-ISR(TIMER0_COMP_vect)  // called when the timer is due
+ISR(TIMER0_COMP_vect)  // called when the timer is due (once every 3.3ms)
 {
     if(current_digit == 0) {
         LEDS = 0;  // turn off display (to avoid that one of the numbers is brighter
@@ -334,6 +368,14 @@ ISR(TIMER0_COMP_vect)  // called when the timer is due
         read_user_input();
     }
     update_timer();
+}
+
+
+ISR(TIMER2_COMP_vect)  // called when the timer is due (once every 100ms)
+{
+    if(display.dirty) {
+        display_update();
+    }
 }
 
 
@@ -345,15 +387,12 @@ ISR(USART_RXC_vect)   // called when one byte is received on the RX line
 
 ISR(INT0_vect)   // called when SCRL_UP is pressed
 {
-    DEBUG(1); _delay_ms(10); DEBUG(0); 
     display_scroll(-1);
 }
 
 
 ISR(INT1_vect)   // called when SCRL_DOWN is pressed
 {
-    DEBUG(1); _delay_ms(10); DEBUG(0); _delay_ms(60);
-    DEBUG(1); _delay_ms(10); DEBUG(0); 
     display_scroll(1);
 }
 
@@ -379,12 +418,15 @@ int main()
 
     initialize_7seg();
     initialize_display();
+    initialize_display_updater();
     initialize_scroll_buttons();
     initialize_uart();
     sei();
 
     for(;;) {
-        DEBUG(1); _delay_ms(10); DEBUG(0); 
+        DEBUG(1); 
+        _delay_ms(10); 
+        DEBUG(0); 
         _delay_ms(500);
     }
 }
