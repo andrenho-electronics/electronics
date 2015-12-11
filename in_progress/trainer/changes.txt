@@ -7,8 +7,8 @@ Remove ULN2308 for inputs (ok)
 
 SPI communication (ok)
 
-Add up/down buttons (scroll)
+Why is the 4067 showing 8080 when port 15 (pin 16) is 1? (ok)
 
-Why is the 4067 showing 8080 when port 15 (pin 16) is 1?
+Add up/down buttons (scroll)
 
 Change relay for resistor

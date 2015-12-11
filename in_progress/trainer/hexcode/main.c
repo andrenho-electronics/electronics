@@ -63,17 +63,15 @@
 #define DB7() (((PINC & (1 << PC0))) == 0 ? 0 : 1)
 
 
-// 
-// GLOBAL VARIABLES
-//
-
-int current_digit = 0;
-uint16_t number = 0x0;
-
-
 //
 // 7 SEGMENT DISPLAY MANIPULATION
 //
+
+
+// global variables
+int current_digit = 0;
+uint16_t number = 0x0;
+
 
 static void initialize_7seg()
 {
@@ -274,6 +272,11 @@ static void initialize_display()
 // 
 // DISPLAY SCROLL SUPPORT
 //
+
+#define NUM_LINES 60
+struct Display {
+    char lines[NUM_LINES][17];
+} display;
 
 static void initialize_scroll_buttons()
 {
