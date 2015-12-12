@@ -6,6 +6,7 @@
 
 #include <stdbool.h>
 #include <stdint.h>
+#include <string.h>
 
 #include <avr/interrupt.h>
 #include <avr/io.h>
@@ -286,7 +287,7 @@ struct Display {
     .lines = {{ 0 }},
     .display = {{ 0 }},
     .cursor_x = 0,
-    .cursor_y = 0,
+    .cursor_y = NUM_LINES-2,
     .dirty = true,
 };
 
@@ -298,34 +299,57 @@ static void initialize_scroll_buttons()
 }
 
 
-static void initialize_display_updater()
+static void display_clear()
 {
-    // setup a timer with a frequency of 10 Hz
-    // (using a prescaler of 64, we call the interrupt at each 155 ticks)
-    // this interrupt will update the display
-
-    TCCR2 = (1 << CS21) | (1 << CS22);  // prescaler 64
-    TCCR2 |= (1 << WGM21);              // CTC mode
-    OCR2 = 155;                         // number of ticks
-    TIMSK |= (1 << OCIE2);              // fire interrupts
+    display.backscroll = 0;
+    display.cursor_x = 0;
+    for(int y=0; y<NUM_LINES; ++y) {
+        memset(&display.lines[y], ' ', 16);
+    }
+    for(int y=0; y<2; ++y) {
+        memset(&display.display[y], ' ', 16);
+    }
+    display.cursor_y = NUM_LINES-2;
+    display.dirty = true;
 }
 
 
 static void display_add_char(char c)
 {
-    // TODO
-    display.lines[NUM_LINES-2][0] = c;
     display.dirty = true;
+    display.backscroll = 0;
+
+    // add char
+    if(c == 13) {
+        display.cursor_x = 0;
+        ++display.cursor_y;
+    } else {
+        display.lines[display.cursor_y][display.cursor_x] = c;
+
+        ++display.cursor_x;
+        if(display.cursor_x >= 16) {
+            display.cursor_x = 0;
+            ++display.cursor_y;
+        }
+    }
+
+    if(display.cursor_y >= NUM_LINES) {
+        display.cursor_y = NUM_LINES - 1;
+        for(int y=1; y<NUM_LINES; ++y) {
+            memcpy(&display.lines[y-1], &display.lines[y], 16);
+        }
+        memset(&display.lines[NUM_LINES-1], ' ', 16);
+    }
 }
 
 
 static void display_scroll(int n)
 {
-    display.backscroll += n;
+    display.backscroll -= n;
     if(display.backscroll < 0) {
         display.backscroll = 0;
-    } else if(display.backscroll >= NUM_LINES) {
-        display.backscroll = NUM_LINES - 1;
+    } else if(display.backscroll >= NUM_LINES - 2) {
+        display.backscroll = NUM_LINES - 2;
     }
     display.dirty = true;
 }
@@ -335,24 +359,24 @@ static void display_update()
 {
     // TODO - disable this interrupt
 
-    for(int y=0; y<=2; ++y) {
+    if(!display.dirty) {
+        return;
+    }
+
+    int by = NUM_LINES - display.backscroll - 2;
+    for(int y=0; y<2; ++y) {
         for(int x=0; x<16; ++x) {
-            if(display.lines[NUM_LINES-y-display.backscroll][x] != display.display[y][x]) {
-                display.display[y][x] = display.lines[NUM_LINES-y-display.backscroll][x];
+            if(display.display[y][x] != display.lines[y+by][x]) {
+                display.display[y][x] = display.lines[y+by][x];
+                // send to display
                 uint8_t addr = ((y == 0) ? 0 : 40) + x;
                 display_write(0, 0b10000000 | addr);
                 display_write(1, (display.display[y][x] == 0) ? ' ' : display.display[y][x]);
-                DEBUG(1); 
-                _delay_ms(10); 
-                DEBUG(0); 
-                _delay_ms(100);
             }
         }
     }
-    // TODO - move cursor to position
+    // TODO - send cursor position to display (or disable when backscroll is != 0)
     
-    display.dirty = false;
-
     // TODO - enable this interrupt
 }
 
@@ -378,13 +402,12 @@ static void initialize_uart()
 static void uart_byte_received(char byte)
 {
     switch(byte) {
-        // TODO
+        case 0:
+            display_clear();
+            break;
         default:
-            display_write(1, byte);
+            display_add_char(byte);
     }
-
-    // TODO: we want to create a buffer, so that we don't spend a lot of time
-    // here in the interrupt
 }
 
 
@@ -400,14 +423,6 @@ ISR(TIMER0_COMP_vect)  // called when the timer is due (once every 3.3ms)
         read_user_input();
     }
     update_timer();
-}
-
-
-ISR(TIMER2_COMP_vect)  // called when the timer is due (once every 100ms)
-{
-    if(display.dirty) {
-        display_update();
-    }
 }
 
 
@@ -450,20 +465,15 @@ int main()
 
     initialize_7seg();
     initialize_display();
-    initialize_display_updater();
     initialize_scroll_buttons();
-    //initialize_uart();
+    initialize_uart();
     sei();
 
-    display_add_char('A');
-
     for(;;) {
-        /*
-        DEBUG(1); 
-        _delay_ms(10); 
-        DEBUG(0); 
-        _delay_ms(500);
-        */
+        for(int i=0; i<10; ++i) {
+            DEBUG(i == 0);
+            display_update();
+        }
     }
 }
 
