@@ -1,2 +1,3 @@
 1: http://electronics.stackexchange.com/questions/55477/using-a-variable-resistor-to-dim-an-led
 2: http://blog.komar.be/led-strip-dimmer-and-potting-attempt/
+3: http://www.learnabout-electronics.org/Oscillators/osc44.php (4.4.8)

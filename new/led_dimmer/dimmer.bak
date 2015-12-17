@@ -1,0 +1,268 @@
+EESchema Schematic File Version 2
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+EELAYER 25 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L BATTERY BT?
+U 1 1 56731A7D
+P 3100 3100
+F 0 "BT?" H 3100 3300 50  0000 C CNN
+F 1 "BATTERY" H 3100 2910 50  0000 C CNN
+F 2 "3V" H 2900 3300 60  0000 C CNN
+F 3 "" H 3100 3100 60  0000 C CNN
+	1    3100 3100
+	0    1    1    0   
+$EndComp
+$Comp
+L POT RV?
+U 1 1 56731B69
+P 4050 2950
+F 0 "RV?" H 4050 2850 50  0000 C CNN
+F 1 "POT" H 4050 2950 50  0000 C CNN
+F 2 "100k" H 4050 2750 60  0000 C CNN
+F 3 "" H 4050 2950 60  0000 C CNN
+	1    4050 2950
+	1    0    0    -1  
+$EndComp
+$Comp
+L DIODE D?
+U 1 1 56731BD2
+P 3800 3150
+F 0 "D?" H 3800 3250 40  0000 C CNN
+F 1 "DIODE" H 3800 3050 40  0000 C CNN
+F 2 "1N4148" H 3800 3350 60  0000 C CNN
+F 3 "" H 3800 3150 60  0000 C CNN
+	1    3800 3150
+	0    -1   -1   0   
+$EndComp
+$Comp
+L LM555N U?
+U 1 1 56731C07
+P 5450 3700
+F 0 "U?" H 5450 3800 70  0000 C CNN
+F 1 "NE555" H 5450 3600 70  0000 C CNN
+F 2 "" H 5450 3700 60  0000 C CNN
+F 3 "" H 5450 3700 60  0000 C CNN
+	1    5450 3700
+	1    0    0    -1  
+$EndComp
+$Comp
+L NPN Q?
+U 1 1 56731DB6
+P 6800 3700
+F 0 "Q?" H 6800 3550 50  0000 R CNN
+F 1 "2N3904" H 6800 3850 50  0000 R CNN
+F 2 "" H 6800 3700 60  0000 C CNN
+F 3 "" H 6800 3700 60  0000 C CNN
+	1    6800 3700
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R?
+U 1 1 56731DEB
+P 6450 3150
+F 0 "R?" V 6530 3150 40  0000 C CNN
+F 1 "R" V 6457 3151 40  0000 C CNN
+F 2 "3.1k" V 6380 3150 30  0000 C CNN
+F 3 "" H 6450 3150 30  0000 C CNN
+	1    6450 3150
+	1    0    0    -1  
+$EndComp
+$Comp
+L LED D?
+U 1 1 56731E1A
+P 7200 3050
+F 0 "D?" H 7200 3150 50  0000 C CNN
+F 1 "LED" H 7200 2950 50  0000 C CNN
+F 2 "~" H 7200 3050 60  0000 C CNN
+F 3 "" H 7200 3050 60  0000 C CNN
+	1    7200 3050
+	0    1    1    0   
+$EndComp
+$Comp
+L C C?
+U 1 1 5673206C
+P 4050 3950
+F 0 "C?" H 4050 4050 40  0000 L CNN
+F 1 "C" H 4056 3865 40  0000 L CNN
+F 2 "100nF" H 4150 3800 30  0000 C CNN
+F 3 "" H 4050 3950 60  0000 C CNN
+	1    4050 3950
+	1    0    0    -1  
+$EndComp
+$Comp
+L DIODE D?
+U 1 1 567322B1
+P 4300 3150
+F 0 "D?" H 4300 3250 40  0000 C CNN
+F 1 "DIODE" H 4300 3050 40  0000 C CNN
+F 2 "1N4148" H 4300 3350 60  0000 C CNN
+F 3 "" H 4300 3150 60  0000 C CNN
+	1    4300 3150
+	0    1    1    0   
+$EndComp
+$Comp
+L SPST SW?
+U 1 1 567324FB
+P 4050 2600
+F 0 "SW?" H 4050 2700 70  0000 C CNN
+F 1 "SPST" H 4050 2500 70  0000 C CNN
+F 2 "" H 4050 2600 60  0000 C CNN
+F 3 "" H 4050 2600 60  0000 C CNN
+	1    4050 2600
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C?
+U 1 1 56733A97
+P 4300 3950
+F 0 "C?" H 4300 4050 40  0000 L CNN
+F 1 "C" H 4306 3865 40  0000 L CNN
+F 2 "10uF" H 4400 3800 30  0000 C CNN
+F 3 "" H 4300 3950 60  0000 C CNN
+	1    4300 3950
+	1    0    0    -1  
+$EndComp
+$Comp
+L LED D?
+U 1 1 56735CF8
+P 7500 3050
+F 0 "D?" H 7500 3150 50  0000 C CNN
+F 1 "LED" H 7500 2950 50  0000 C CNN
+F 2 "" H 7500 3050 60  0000 C CNN
+F 3 "" H 7500 3050 60  0000 C CNN
+	1    7500 3050
+	0    1    1    0   
+$EndComp
+$Comp
+L LED D?
+U 1 1 56735F20
+P 7800 3050
+F 0 "D?" H 7800 3150 50  0000 C CNN
+F 1 "LED" H 7800 2950 50  0000 C CNN
+F 2 "" H 7800 3050 60  0000 C CNN
+F 3 "" H 7800 3050 60  0000 C CNN
+	1    7800 3050
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	3800 3350 4300 3350
+Wire Wire Line
+	4050 3350 4050 3750
+Wire Wire Line
+	4050 3500 4750 3500
+Connection ~ 4050 3350
+Connection ~ 4050 3500
+Wire Wire Line
+	4300 3750 4750 3750
+Wire Wire Line
+	6150 3500 6150 2800
+Wire Wire Line
+	6150 2800 4050 2800
+Wire Wire Line
+	6150 3700 6600 3700
+Wire Wire Line
+	4700 3500 4700 3200
+Wire Wire Line
+	4700 3200 6250 3200
+Wire Wire Line
+	6250 3200 6250 3900
+Wire Wire Line
+	6250 3900 6150 3900
+Connection ~ 4700 3500
+Wire Wire Line
+	6450 3400 6450 3700
+Connection ~ 6450 3700
+Wire Wire Line
+	6900 3450 6900 3500
+Wire Wire Line
+	3100 4500 6900 4500
+Wire Wire Line
+	6900 4500 6900 3900
+Wire Wire Line
+	4300 4150 4300 4500
+Connection ~ 4300 4500
+Wire Wire Line
+	4050 4150 4050 4500
+Connection ~ 4050 4500
+Wire Wire Line
+	4550 2600 7800 2600
+Wire Wire Line
+	4600 2600 4600 4000
+Wire Wire Line
+	4600 4000 4750 4000
+Wire Wire Line
+	6450 2600 6450 2900
+Connection ~ 4600 2600
+Wire Wire Line
+	7200 2600 7200 2850
+Connection ~ 6450 2600
+Wire Wire Line
+	7500 2600 7500 2850
+Connection ~ 7200 2600
+Wire Wire Line
+	7800 2600 7800 2850
+Connection ~ 7500 2600
+Wire Wire Line
+	6900 3450 7800 3450
+Wire Wire Line
+	7200 3450 7200 3250
+Wire Wire Line
+	7500 3450 7500 3250
+Connection ~ 7200 3450
+Wire Wire Line
+	7800 3450 7800 3250
+Connection ~ 7500 3450
+Wire Wire Line
+	3100 3400 3100 4500
+Wire Wire Line
+	3100 2800 3100 2600
+Wire Wire Line
+	3100 2600 3550 2600
+Text Notes 8200 3150 1    60   ~ 0
+25mA
+Wire Notes Line
+	8050 2600 8050 3450
+Text Notes 7100 3600 0    60   ~ 0
+LL504WC2EW23TC
+$EndSCHEMATC
