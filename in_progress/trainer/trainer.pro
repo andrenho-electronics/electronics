@@ -1,4 +1,4 @@
-update=Ter 08 Dez 2015 05:11:41 BRST
+update=Sáb 09 Jan 2016 19:54:05 BRST
 version=1
 last_client=kicad
 [cvpcb]
@@ -43,18 +43,6 @@ LibName13=led
 LibName14=dip_sockets
 LibName15=pga_sockets
 LibName16=valves
-[general]
-version=1
-[schematic_editor]
-version=1
-PageLayoutDescrFile=
-PlotDirectoryName=
-SubpartIdSeparator=0
-SubpartFirstId=65
-NetFmtName=
-SpiceForceRefPrefix=0
-SpiceUseNetNumbers=0
-LabSize=60
 [eeschema]
 version=1
 LibDir=../trainer
@@ -94,3 +82,15 @@ LibName32=C:/andre/projects/electronics/new/trainer/ULN280xA
 LibName33=Gajda_cmosieee
 LibName34=jhd-162a
 LibName35=capteurs
+[general]
+version=1
+[schematic_editor]
+version=1
+PageLayoutDescrFile=
+PlotDirectoryName=
+SubpartIdSeparator=0
+SubpartFirstId=65
+NetFmtName=
+SpiceForceRefPrefix=0
+SpiceUseNetNumbers=0
+LabSize=60
