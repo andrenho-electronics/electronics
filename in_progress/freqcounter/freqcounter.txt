@@ -1,0 +1,12 @@
+Counter: 74HC4040
+(http://tiggercomp.com.br/novaloja/product_info.php?products_id=4040)
+90 Mhz at 5V
+(possibly two, cascated?)
+
+Display:
+http://tiggercomp.com.br/novaloja/product_info.php?cPath=63_64&products_id=6341
+(or 7seg display)
+
+ATTINY2313
+
+Switch for switching between ms and hz
