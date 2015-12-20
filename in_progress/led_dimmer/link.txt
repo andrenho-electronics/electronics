@@ -1,3 +1,6 @@
 1: http://electronics.stackexchange.com/questions/55477/using-a-variable-resistor-to-dim-an-led
 2: http://blog.komar.be/led-strip-dimmer-and-potting-attempt/
 3: http://www.learnabout-electronics.org/Oscillators/osc44.php (4.4.8)
+
+Read pot:
+http://www.forth-ev.de/wiki/lib/exe/fetch.php/projects:4e4th:4e4th:start:msp430g2553_experimente:adc-with-no-adc.pdf
