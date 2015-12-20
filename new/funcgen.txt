@@ -8,3 +8,13 @@ http://produto.mercadolivre.com.br/MLB-488681983-icl8038-gerador-de-funcoes-new-
 http://en.wikipedia.org/wiki/Direct_digital_synthesizer
 
 http://mdiy.pl/generator-funkcyjny-400khz-na-icl8038/?lang=en
+
+
+
+Funcionalidades:
+  - sine wave (also negative?)
+  - square wave (fast option), variable duty cycle
+  - triangle wave
+  - sawtooth wave (both sides)
+  - noise (white, pink, etc)
+  - arbitrary waveform
