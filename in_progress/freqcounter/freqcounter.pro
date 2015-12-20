@@ -1,4 +1,4 @@
-update=Dom 20 Dez 2015 10:28:00 BRST
+update=Dom 20 Dez 2015 11:04:51 BRST
 version=1
 last_client=kicad
 [pcbnew]
@@ -23,8 +23,6 @@ ModuleOutlineThickness=0.150000000000
 [cvpcb]
 version=1
 NetIExt=net
-[general]
-version=1
 [eeschema]
 version=1
 LibDir=
@@ -61,3 +59,5 @@ LibName29=valves
 LibName30=Gajda_cmosieee
 LibName31=ULN280xA
 LibName32=jhd-162a
+[general]
+version=1
