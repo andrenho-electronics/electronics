@@ -8,6 +8,34 @@
 #include <avr/wdt.h>
 #include <util/delay.h>
 
+static void initialize();
+static int voltage_level();
+static void set_led_pwm_level(n);
+
+int main()
+{
+    initialize();
+
+    int v = voltage_level();
+    set_led_pwm_level(v);
+}
+
+
+void initialize()
+{
+}
+
+
+int voltage_level()
+{
+}
+
+
+void set_led_pwm_level(n)
+{
+}
+
+/*
 volatile int done_comparing = 0;
 volatile int timer = 0;
 
@@ -69,16 +97,15 @@ int main()
         } else {
             PORTD &= ~(1<<PORTD5);
         }
-        /*
         //PORTD ^= (1<<PORTD4); _delay_ms(200); 
         DDRB = 0xFC;
         _delay_ms(2000);
         DDRB = 0xFF;
         _delay_ms(10);
-        */
     }
 
     return 0;
 }
+*/
 
 // vim: ts=4:sw=4:sts=4:expandtab
