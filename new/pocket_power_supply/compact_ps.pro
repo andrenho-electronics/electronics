@@ -1,4 +1,4 @@
-update=Seg 21 Dez 2015 13:25:06 BRST
+update=Seg 21 Dez 2015 19:01:25 BRST
 version=1
 last_client=kicad
 [pcbnew]
@@ -23,8 +23,6 @@ ModuleOutlineThickness=0.150000000000
 [cvpcb]
 version=1
 NetIExt=net
-[general]
-version=1
 [eeschema]
 version=1
 LibDir=
@@ -60,3 +58,5 @@ LibName28=contrib
 LibName29=valves
 LibName30=ld23900-adj
 LibName31=dips-s
+[general]
+version=1
