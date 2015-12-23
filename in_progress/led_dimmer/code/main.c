@@ -1,6 +1,7 @@
 #define F_CPU 4000000UL
 
 #include <stdint.h>
+#include <stdbool.h>
 
 #include <avr/interrupt.h>
 #include <avr/io.h>
@@ -12,33 +13,82 @@ static void initialize();
 static int voltage_level();
 static void set_led_pwm_level(int n);
 
+bool enable_verify = true;
+
+ISR(TIMER1_COMPA_vect)
+{
+    enable_verify = !enable_verify;  // TODO - can this fail?
+}
+
+
+ISR(ANA_COMP_vect)
+{
+    if(enable_verify) {
+        PORTD |= (1<<PD6);
+        _delay_us(40);
+        PORTD &= ~(1<<PD6);
+    }
+}
+
+
 int main()
 {
     initialize();
 
-    int v = voltage_level();
-    set_led_pwm_level(v);
+    //int v = voltage_level();
+    while(1) {
+        /*
+        for(int v=0; v<8; ++v) {
+            set_led_pwm_level(v);
+            _delay_ms(1000);
+        }
+        */
+    }
 }
 
 
 void initialize()
 {
-    // initialize PWM
-    DDRD |= (1 << PD3);                     // PWM output in PD3
+    // initialize PWM for LED
+    DDRB |= (1 << PB2);                     // PWM output in PD3
     TCCR0A = (1 << COM0A1) | (1 << WGM00);  // phase correct PWM mode
-    OCR0A = 0x10;                           // initial PWM pusle width
+    //OCR0A = 0x80;                         // initial PWM pusle width
     TCCR0B = (1 << CS01);                   // clock source = CLK/8, start PWM
+
+    // initialize CTC for activating RC circuit (output in PD5)
+    DDRB |= (1 << PB3);         // PWM output in PD3
+    OCR1A = 0x400;              // count up to 0x400 (1024)
+    TCCR1A |= (1 << COM1A0);    // toggle pin PB3 on match
+    TCCR1B |= (1 << CS10);      // no prescaler
+    TCCR1B |= (1 << WGM12);     // activate CTC
+    TIMSK |= (1 << OCIE1A);     // enable interrupt
+
+    // initialize analog comparator
+    ACSR = (1 << ACIE);         // enable interrupt
+    // TODO - only when rising
+
+    sei();
 }
 
 
 int voltage_level()
 {
-    return 0;
+    return 1;
 }
 
 
 void set_led_pwm_level(int n)
 {
+    switch(n) {
+        case 0: OCR0A = 0x0; break;
+        case 1: OCR0A = 0x1; break;
+        case 2: OCR0A = 0x4; break;
+        case 3: OCR0A = 0xB; break;
+        case 4: OCR0A = 0x1A; break;
+        case 5: OCR0A = 0x3C; break;
+        case 6: OCR0A = 0x7C; break;
+        case 7: OCR0A = 0xFF; break;
+    }
 }
 
 /*
