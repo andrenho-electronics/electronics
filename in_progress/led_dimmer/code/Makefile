@@ -5,6 +5,10 @@ SPEED=19200
 #PROGRAMMER=arduino
 #SPEED=115200
 
+LFUSE=0x5C
+HFUSE=0x9F
+EFUSE=0xFF
+
 all: main.hex
 
 main.elf: main.c
@@ -17,11 +21,10 @@ assembly: main.c
 	avr-gcc -S -mmcu=$(DEVICE) -Wall -Os -omain.s main.c
 
 upload: main.hex
-	avrdude -p$(DEVICE) -c$(PROGRAMMER) -b$(SPEED) -P/dev/ttyACM0 -U flash:w:main.hex
-	# -C C:\temp\arduino-1.0.4\hardware\tools\avr\etc\avrdude.conf
+	avrdude -p${DEVICE} -c${PROGRAMMER} -b${SPEED} -P/dev/ttyACM0 -U flash:w:main.hex
 
 fuse:
-	avrdude -pattiny2313 -cstk500v1 -P/dev/ttyACM0 -b19200 -e -Uefuse:w:0xFF:m -Uhfuse:w:0x9F:m -Ulfuse:w:0xE2:m
+	avrdude -p${DEVICE} -c${PROGRAMMER} -P/dev/ttyACM0 -b${SPEED} -e -Ulfuse:w:${LFUSE}:m -Uhfuse:w:${HFUSE}:m -Uefuse:w:${EFUSE}:m 
 
 clean:
 	rm -f *.hex *.elf *.s
