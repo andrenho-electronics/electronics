@@ -47,7 +47,7 @@
 //
 
 int current_digit = 0;
-uint16_t number = 0xABCD;
+uint16_t number = 0xa24f;
 
 
 //
@@ -82,7 +82,7 @@ uint8_t digit_value(uint8_t digit, uint16_t n, bool decimal, bool* error)
 
     uint32_t v = number;
     if(!decimal) {
-        v >>= (8 * digit);
+        v >>= (4 * (3-digit));
         v &= 0xF;
     } else {
         if(v > 9999) {
@@ -104,7 +104,7 @@ void set_digit_output(uint8_t digit, uint8_t value)
     case 0x1: LEDS |= (1<<LED_B)|(1<<LED_C); break;
     case 0x2: LEDS |= (1<<LED_A)|(1<<LED_B)|(1<<LED_D)|(1<<LED_E)|(1<<LED_G); break;
     case 0x3: LEDS |= (1<<LED_A)|(1<<LED_B)|(1<<LED_C)|(1<<LED_D)|(1<<LED_G); break;
-    case 0x4: LEDS |= (1<<LED_A)|(1<<LED_B)|(1<<LED_C)|(1<<LED_F)|(1<<LED_G); break;
+    case 0x4: LEDS |= (1<<LED_B)|(1<<LED_C)|(1<<LED_F)|(1<<LED_G); break;
     case 0x5: LEDS |= (1<<LED_A)|(1<<LED_C)|(1<<LED_D)|(1<<LED_F)|(1<<LED_G); break;
     case 0x6: LEDS |= (1<<LED_A)|(1<<LED_C)|(1<<LED_D)|(1<<LED_E)|(1<<LED_F)|(1<<LED_G); break;
     case 0x7: LEDS |= (1<<LED_A)|(1<<LED_B)|(1<<LED_C); break;
