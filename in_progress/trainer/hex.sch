@@ -931,4 +931,6 @@ F 3 "" H 7800 6750 50  0000 C CNN
 	1    7800 6750
 	1    0    0    -1  
 $EndComp
+Text Notes 5350 10550 0    60   ~ 0
+Add pull-down resistor
 $EndSCHEMATC
