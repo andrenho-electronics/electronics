@@ -54,7 +54,7 @@
 //
 
 int current_digit = 0;
-uint16_t number = 0x0000;
+uint16_t number = 0x0;
 
 
 //
@@ -74,11 +74,11 @@ static void initialize_7seg()
 }
 
 
-uint8_t digit_value(uint8_t digit, uint16_t n, bool decimal, bool* error)
+static uint8_t digit_value(uint8_t digit, uint16_t n, bool decimal, bool* error)
 {
     *error = false;
 
-    uint16_t v = number;
+    uint16_t v = n;
     if(!decimal) {
         v >>= (4 * (3-digit));
         v &= 0xF;
@@ -93,7 +93,8 @@ uint8_t digit_value(uint8_t digit, uint16_t n, bool decimal, bool* error)
     return (uint8_t)v;
 }
 
-void set_digit_output(uint8_t digit, uint8_t value)
+
+static void set_digit_output(uint8_t digit, uint8_t value)
 {
     LEDS = 0;  // clear leds
 
@@ -137,7 +138,8 @@ void set_digit_output(uint8_t digit, uint8_t value)
     }
 }
 
-ISR(TIMER0_COMP_vect)
+
+static void update_timer()
 {
     bool error = false;
     uint8_t v = digit_value(current_digit, number, HEX_DEC(), &error);
@@ -158,27 +160,41 @@ ISR(TIMER0_COMP_vect)
 // 16-BIT USER INPUT (CD4067)
 //
 
-uint16_t user_input()
+static void read_user_input()
 {
     uint16_t n = 0;
     for(int8_t i=15; i>=0; --i) {
-
         n <<= 1;
 
-        // read from CD4067
+        // put address into CD4067
         set_S0(i & 0x1);
         set_S1((i >> 1) & 0x1);
         set_S2((i >> 2) & 0x1);
         set_S3((i >> 3) & 0x1);
-        _delay_ms(10); // wait for reply
 
+        // read result from CD4067
+        //
+        // There was supposed to be a delay here, for the CD4067 to process the
+        // inputs and gives us result. But we ignore that - if we don't get the
+        // correct result now, we get it in the next iteration
         n |= Z();
-        // n = (n << 1) | Z();
-        _delay_ms(10);
     }
 
-    return n;
+    number = n;
 }
+
+//
+// INTERRUPTS
+//
+
+ISR(TIMER0_COMP_vect)
+{
+    if(current_digit == 0) {
+        read_user_input();
+    }
+    update_timer();
+}
+
 
 //
 // MAIN PROCEDURE
@@ -198,17 +214,7 @@ int main()
     initialize_7seg();
     sei();
 
-    number = user_input();
-
     for(;;) {
-        number = user_input();
-        /*
-        _delay_ms(10);
-        //DEBUG_TOGGLE();
-        DEBUG(1);
-        _delay_ms(10);
-        DEBUG(0);
-        */
     }
 }
 
