@@ -3,7 +3,7 @@ PROGRAMMER=avrisp
 SPEED=19200
 
 LFUSE=0xE1
-HFUSE=0x99
+HFUSE=0xD9
 
 all: main.hex
 

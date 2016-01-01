@@ -39,6 +39,7 @@
 
 #define DEBUG(n) { if(n) { PORTD |= (1 << PD4); } else { PORTD &= ~(1 << PD4); } }
 #define DEBUG_TOGGLE() { PORTD ^= (1 << PD4); }
+#define DEBUG_BLINK() { DEBUG(1); _delay_ms(10); DEBUG(0); _delay_ms(200); }
 
 #define HEX_DEC() (PINB & (1 << PB3))
 
@@ -48,6 +49,19 @@
 #define set_S2(n) { if(!(n)) { PORTD |= (1 << PD0); } else { PORTD &= ~(1 << PD0); } }
 #define set_S3(n) { if(!(n)) { PORTD |= (1 << PD1); } else { PORTD &= ~(1 << PD1); } }
 #define Z() (((PINB & (1 << PB2)) == 0) ? 1 : 0)
+
+#define set_DB(n) { \
+    if((n) & 0b0001) { PORTC |= (1 << PC3); } else { PORTC &= ~(1 << PC3); } \
+    if((n) & 0b0010) { PORTC |= (1 << PC2); } else { PORTC &= ~(1 << PC2); } \
+    if((n) & 0b0100) { PORTC |= (1 << PC1); } else { PORTC &= ~(1 << PC1); } \
+    if((n) & 0b1000) { PORTC |= (1 << PC0); } else { PORTC &= ~(1 << PC0); } \
+}
+#define set_E(n)  { if(n) { PORTC |= (1 << PC4); } else { PORTC &= ~(1 << PC4); } }
+#define set_RW(n) { if(n) { PORTC |= (1 << PC5); } else { PORTC &= ~(1 << PC5); } }
+#define set_RS(n) { if(n) { PORTC |= (1 << PC6); } else { PORTC &= ~(1 << PC6); } }
+#define RW()  (((PINC & (1 << PC6))) == 0 ? 0 : 1)
+#define RS()  (((PINC & (1 << PC5))) == 0 ? 0 : 1)
+#define DB7() (((PINC & (1 << PC0))) == 0 ? 0 : 1)
 
 // 
 // GLOBAL VARIABLES
@@ -157,7 +171,7 @@ static void update_timer()
 
 
 //
-// 16-BIT USER INPUT (CD4067)
+// 16-BIT USER INPUT (CD4067) MANIPULATION
 //
 
 static void read_user_input()
@@ -183,6 +197,93 @@ static void read_user_input()
     number = n;
 }
 
+
+//
+// DIGITAL DISPLAY (JHD-162A) MANIPULATION
+//
+
+static void display_write(bool rs, uint8_t data);
+
+static void display_wait_for_busy()
+{
+    set_RS(0);
+    set_RW(1);
+    set_E(1);
+
+    DDRC &= ~(1 << PC0);
+    while(DB7() != 0) {}
+    DDRC |= (1 << PC0);
+
+    set_E(0);
+}
+
+static void display_toggle_E()
+{
+    set_E(0); 
+    _delay_us(1); 
+    set_E(1); 
+    _delay_us(1); 
+    set_E(0); 
+    _delay_us(1);
+}
+
+static void display_write(bool rs, uint8_t data)
+{
+    display_wait_for_busy();
+
+    set_RS(rs);
+    set_RW(0);
+    set_DB(data >> 4);
+    display_toggle_E();
+    set_RW(0);
+    set_DB(data & 0xf);
+    display_toggle_E();
+}
+
+
+static void initialize_display()
+{
+    // initialization sequence
+    set_RS(0);
+    set_RW(0);
+    set_DB(0b0011);
+    display_toggle_E(); _delay_ms(50);
+    display_toggle_E(); _delay_ms(50);
+    display_toggle_E(); _delay_ms(50);
+    //display_wait_for_busy();
+
+    // set interface to be 4bit wide
+    set_RS(0);
+    set_RW(0);
+    set_DB(0b0010);
+    display_toggle_E();
+    _delay_us(40);
+    //display_wait_for_busy();
+
+    // data length 4 bit, 16x2 display, font 5x8
+    display_write(0, 0b00101000);
+
+    // display on, cursor off, blinking
+    display_write(0, 0b00001101);
+    display_write(0, 0b00000001);
+
+    // entry mode set
+    display_write(0, 0b00000110);
+
+    // go home
+    display_write(0, 0b00000010);
+    _delay_ms(2);
+
+    // write data
+    display_write(1, 'H');
+    display_write(1, 'e');
+    display_write(1, 'l');
+    display_write(1, 'l');
+    display_write(1, 'o');
+    display_write(1, '!');
+}
+
+
 //
 // INTERRUPTS
 //
@@ -202,7 +303,7 @@ ISR(TIMER0_COMP_vect)
 
 int main()
 {
-    _delay_ms(500);
+    _delay_ms(50);
 
     // initialize
     DDRA = 0b11111111;
@@ -212,9 +313,12 @@ int main()
     PORTB |= (1 << PB2);  // enable internal pull-up in PB2
 
     initialize_7seg();
+    initialize_display();
     sei();
 
     for(;;) {
+        //DEBUG(1); _delay_ms(10); DEBUG(0); 
+        _delay_ms(500);
     }
 }
 
