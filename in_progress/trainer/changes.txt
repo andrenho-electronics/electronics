@@ -1,0 +1,4 @@
+PB3 -> PA3  (hex-dec switch)
+PD4 -> PC7 (test led)
+PB4..7 -> PD4..7 (7seg cathodes)
+PB0..1 -> x
