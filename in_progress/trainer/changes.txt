@@ -1,7 +1,7 @@
-PB3 -> PA3  (hex-dec switch)
-PD4 -> PC7 (test led)
+PB0..1 -> x (ok)
+PD4 -> PC7 (test led) (ok)
 PB4..7 -> PD4..7 (7seg cathodes)
-PB0..1 -> x
+PB3 -> PA3  (hex-dec switch)
 
 Add up/down buttons (scroll)
 Add I²C / SPI select button (?)

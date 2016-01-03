@@ -37,8 +37,8 @@
 // MACROS
 //
 
-#define DEBUG(n) { if(n) { PORTD |= (1 << PD4); } else { PORTD &= ~(1 << PD4); } }
-#define DEBUG_TOGGLE() { PORTD ^= (1 << PD4); }
+#define DEBUG(n) { if(n) { PORTC |= (1 << PC7); } else { PORTC &= ~(1 << PC7); } }
+#define DEBUG_TOGGLE() { PORTC ^= (1 << PC7); }
 #define DEBUG_BLINK() { DEBUG(1); _delay_ms(10); DEBUG(0); _delay_ms(200); }
 
 #define HEX_DEC() (PINB & (1 << PB3))
@@ -317,7 +317,7 @@ int main()
     sei();
 
     for(;;) {
-        //DEBUG(1); _delay_ms(10); DEBUG(0); 
+        DEBUG(1); _delay_ms(10); DEBUG(0); 
         _delay_ms(500);
     }
 }
