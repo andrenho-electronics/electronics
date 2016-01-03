@@ -24,3 +24,19 @@ fuse:
 
 clean:
 	rm -f *.hex *.elf *.s
+
+#
+#
+#
+
+test.elf: test.c
+	avr-gcc -mmcu=attiny2313 -Wall -Os -otest.elf test.c
+
+test.hex: test.elf
+	avr-objcopy -j .text -j .data -O ihex test.elf test.hex
+
+test-upload: test.hex
+	avrdude -pattiny2313 -c${PROGRAMMER} -b${SPEED} -P/dev/ttyACM0 -U flash:w:test.hex
+
+test-fuse:
+	avrdude -pattiny2313 -c${PROGRAMMER} -P/dev/ttyACM0 -b${SPEED} -e -Ulfuse:w:0x64:m -Uhfuse:w:0x9f:m

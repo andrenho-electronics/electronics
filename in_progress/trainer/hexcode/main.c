@@ -18,11 +18,11 @@
 // DEFINITIONS
 //
 
-#define DIGITS PORTB
-#define DIGIT_0 PB4
-#define DIGIT_1 PB5
-#define DIGIT_2 PB6
-#define DIGIT_3 PB7
+#define DIGITS PORTD
+#define DIGIT_0 PD4
+#define DIGIT_1 PD5
+#define DIGIT_2 PD6
+#define DIGIT_3 PD7
 
 #define LEDS PORTA
 #define LED_A PA2
@@ -41,14 +41,14 @@
 #define DEBUG_TOGGLE() { PORTC ^= (1 << PC7); }
 #define DEBUG_BLINK() { DEBUG(1); _delay_ms(10); DEBUG(0); _delay_ms(200); }
 
-#define HEX_DEC() (PINB & (1 << PB3))
+#define HEX_DEC() (PINA & (1 << PA3))
 
 // ps. the following ports are inverted!
-#define set_S0(n) { if(!(n)) { PORTD |= (1 << PD3); } else { PORTD &= ~(1 << PD3); } }
-#define set_S1(n) { if(!(n)) { PORTD |= (1 << PD2); } else { PORTD &= ~(1 << PD2); } }
-#define set_S2(n) { if(!(n)) { PORTD |= (1 << PD0); } else { PORTD &= ~(1 << PD0); } }
-#define set_S3(n) { if(!(n)) { PORTD |= (1 << PD1); } else { PORTD &= ~(1 << PD1); } }
-#define Z() (((PINB & (1 << PB2)) == 0) ? 1 : 0)
+#define set_S0(n) { if(n) { PORTD |= (1 << PD3); } else { PORTD &= ~(1 << PD3); } }
+#define set_S1(n) { if(n) { PORTD |= (1 << PD2); } else { PORTD &= ~(1 << PD2); } }
+#define set_S2(n) { if(n) { PORTB |= (1 << PB1); } else { PORTB &= ~(1 << PB1); } }
+#define set_S3(n) { if(n) { PORTB |= (1 << PB3); } else { PORTB &= ~(1 << PB3); } }
+#define Z() (((PINB & (1 << PB2)) == 0) ? 0 : 1)
 
 #define set_DB(n) { \
     if((n) & 0b0001) { PORTC |= (1 << PC3); } else { PORTC &= ~(1 << PC3); } \
@@ -306,11 +306,10 @@ int main()
     _delay_ms(50);
 
     // initialize
-    DDRA = 0b11111111;
-    DDRB = 0b11110000;    // PB0..3 = inputs
+    DDRA = 0b11110111;
+    DDRB = 0b11111011;    // PB0..3 = inputs
     DDRC = 0b11111111;
     DDRD = 0b11111111;
-    PORTB |= (1 << PB2);  // enable internal pull-up in PB2
 
     initialize_7seg();
     initialize_display();
