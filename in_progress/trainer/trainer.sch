@@ -1024,11 +1024,8 @@ Wire Wire Line
 	8900 4450 8950 4450
 Wire Wire Line
 	8950 5700 8900 5700
-Connection ~ 8950 4450
 Wire Wire Line
 	10300 3650 10150 3650
-Wire Wire Line
-	8950 3450 10300 3450
 Wire Wire Line
 	10300 3450 10300 5600
 Wire Wire Line
@@ -1076,9 +1073,6 @@ Connection ~ 10300 5400
 Wire Wire Line
 	10300 5600 10150 5600
 Connection ~ 10300 5500
-Wire Wire Line
-	8950 3450 8950 5700
-Connection ~ 10300 3450
 Wire Wire Line
 	9600 4350 9750 4350
 Wire Wire Line
