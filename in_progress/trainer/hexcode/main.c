@@ -43,8 +43,8 @@
 
 #define HEX_DEC() (PINA & (1 << PA3))
 
-#define set_S0(n) { if(n) { PORTD |= (1 << PD3); } else { PORTD &= ~(1 << PD3); } }
-#define set_S1(n) { if(n) { PORTD |= (1 << PD2); } else { PORTD &= ~(1 << PD2); } }
+#define set_S0(n) { if(n) { PORTB |= (1 << PB4); } else { PORTB &= ~(1 << PB4); } }
+#define set_S1(n) { if(n) { PORTB |= (1 << PB0); } else { PORTB &= ~(1 << PB0); } }
 #define set_S2(n) { if(n) { PORTB |= (1 << PB1); } else { PORTB &= ~(1 << PB1); } }
 #define set_S3(n) { if(n) { PORTB |= (1 << PB3); } else { PORTB &= ~(1 << PB3); } }
 #define Z() (((PINB & (1 << PB2)) == 0) ? 0 : 1)
@@ -284,6 +284,13 @@ static void initialize_display()
 }
 
 
+static void initialize_scroll_buttons()
+{
+    GICR = (1 << INT0) | (1 << INT1);       // enable interrupts 0 and 1
+    MCUCR = (1 << ISC11) | (1 << ISC01);    // interrupts called on falling edge
+}
+
+
 //
 // UART SERIAL COMMUNICATION
 //
@@ -334,6 +341,19 @@ ISR(USART_RXC_vect)   // called when one byte is received on the RX line
 }
 
 
+ISR(INT0_vect)   // called when SCRL_UP is pressed
+{
+    DEBUG(1); _delay_ms(10); DEBUG(0); 
+}
+
+
+ISR(INT1_vect)   // called when SCRL_DOWN is pressed
+{
+    DEBUG(1); _delay_ms(10); DEBUG(0); _delay_ms(60);
+    DEBUG(1); _delay_ms(10); DEBUG(0); 
+}
+
+
 //
 // MAIN PROCEDURE
 //
@@ -346,19 +366,22 @@ int main()
     DDRA = 0b11110111;
     DDRB = 0b11111011;    // PB0..3 = inputs
     DDRC = 0b11111111;
-    DDRD = 0b11111111;
+    DDRD = 0b11110011;
 
     // setup pull-up resistors
-    PORTA |= (1 << PORTA3);
+    PORTA |= (1 << PA3);
+    PORTD |= (1 << PD2);
+    PORTD |= (1 << PD3);
 
     initialize_7seg();
     initialize_display();
+    initialize_scroll_buttons();
     initialize_uart();
     sei();
 
     for(;;) {
-        DEBUG(1); _delay_ms(10); DEBUG(0); 
-        _delay_ms(500);
+        //DEBUG(1); _delay_ms(10); DEBUG(0); 
+        //_delay_ms(500);
     }
 }
 

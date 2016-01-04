@@ -26,6 +26,28 @@ int main()
     UDR = 'A';
     while(!(UCSRA & (1 << UDRE)));      // wait until register is free
     UDR = 'n';
+    while(!(UCSRA & (1 << UDRE)));      // wait until register is free
+    UDR = 'd';
+    while(!(UCSRA & (1 << UDRE)));      // wait until register is free
+    UDR = 'r';
+    while(!(UCSRA & (1 << UDRE)));      // wait until register is free
+    UDR = 'e';
+    while(!(UCSRA & (1 << UDRE)));      // wait until register is free
+    UDR = ' ';
+
+    _delay_ms(1000);
+    while(!(UCSRA & (1 << UDRE)));      // wait until register is free
+    UDR = 'W';
+    while(!(UCSRA & (1 << UDRE)));      // wait until register is free
+    UDR = 'a';
+    while(!(UCSRA & (1 << UDRE)));      // wait until register is free
+    UDR = 'g';
+    while(!(UCSRA & (1 << UDRE)));      // wait until register is free
+    UDR = 'n';
+    while(!(UCSRA & (1 << UDRE)));      // wait until register is free
+    UDR = 'e';
+    while(!(UCSRA & (1 << UDRE)));      // wait until register is free
+    UDR = 'r';
 
     // blink debug
     for(;;) {
