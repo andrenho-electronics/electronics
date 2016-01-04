@@ -24,6 +24,8 @@ int main()
     _delay_ms(500);
     while(!(UCSRA & (1 << UDRE)));      // wait until register is free
     UDR = 'A';
+    while(!(UCSRA & (1 << UDRE)));      // wait until register is free
+    UDR = 'n';
 
     // blink debug
     for(;;) {
