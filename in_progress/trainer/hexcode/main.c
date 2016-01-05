@@ -273,16 +273,18 @@ static void initialize_display()
 // DISPLAY SCROLL SUPPORT
 //
 
-#define NUM_LINES 60
+#define NUM_LINES 4 /* 60 */
 
 struct Display {
     int backscroll;
-    char lines[NUM_LINES][17];
+    char lines[NUM_LINES][16];
+    char display[2][16];
     int cursor_x, cursor_y;
     bool dirty;
 } display = {
     .backscroll = 0,
     .lines = {{ 0 }},
+    .display = {{ 0 }},
     .cursor_x = 0,
     .cursor_y = 0,
     .dirty = true,
@@ -305,23 +307,53 @@ static void initialize_display_updater()
     TCCR2 = (1 << CS21) | (1 << CS22);  // prescaler 64
     TCCR2 |= (1 << WGM21);              // CTC mode
     OCR2 = 155;                         // number of ticks
-    TIMSK = (1 << OCIE2);               // fire interrupts
+    TIMSK |= (1 << OCIE2);              // fire interrupts
+}
 
-    // TODO - remove this test
-    display.lines[NUM_LINES-2][0] = 'A';
-    display.lines[NUM_LINES-2][1] = 'n';
+
+static void display_add_char(char c)
+{
+    // TODO
+    display.lines[NUM_LINES-2][0] = c;
+    display.dirty = true;
 }
 
 
 static void display_scroll(int n)
 {
-    // TODO
+    display.backscroll += n;
+    if(display.backscroll < 0) {
+        display.backscroll = 0;
+    } else if(display.backscroll >= NUM_LINES) {
+        display.backscroll = NUM_LINES - 1;
+    }
+    display.dirty = true;
 }
 
 
 static void display_update()
 {
-    // TODO
+    // TODO - disable this interrupt
+
+    for(int y=0; y<=2; ++y) {
+        for(int x=0; x<16; ++x) {
+            if(display.lines[NUM_LINES-y-display.backscroll][x] != display.display[y][x]) {
+                display.display[y][x] = display.lines[NUM_LINES-y-display.backscroll][x];
+                uint8_t addr = ((y == 0) ? 0 : 40) + x;
+                display_write(0, 0b10000000 | addr);
+                display_write(1, (display.display[y][x] == 0) ? ' ' : display.display[y][x]);
+                DEBUG(1); 
+                _delay_ms(10); 
+                DEBUG(0); 
+                _delay_ms(100);
+            }
+        }
+    }
+    // TODO - move cursor to position
+    
+    display.dirty = false;
+
+    // TODO - enable this interrupt
 }
 
 
@@ -420,14 +452,18 @@ int main()
     initialize_display();
     initialize_display_updater();
     initialize_scroll_buttons();
-    initialize_uart();
+    //initialize_uart();
     sei();
 
+    display_add_char('A');
+
     for(;;) {
+        /*
         DEBUG(1); 
         _delay_ms(10); 
         DEBUG(0); 
         _delay_ms(500);
+        */
     }
 }
 
