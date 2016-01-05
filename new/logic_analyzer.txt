@@ -1,0 +1,21 @@
+v0:
+  suported protocols:
+    - UART/USART
+    - SPI
+    - I²C
+    - parallel
+    - HD44780
+    - USB (?)
+
+  controlled via USB cable / PC application
+
+v1:
+  - AVR programming
+  - PIC programming
+
+v2: 
+  - JTAG
+  - RS-232
+  - MIDI
+  - keyboard (?)
+  - others?
