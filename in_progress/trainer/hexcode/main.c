@@ -33,8 +33,6 @@
 #define LED_F PA4
 #define LED_G PA6
 
-#define NUM_LINES 30
-
 //
 // MACROS
 //
@@ -71,12 +69,6 @@
 
 int current_digit = 0;
 uint16_t number = 0x0;
-struct Display {
-    char line[NUM_LINES][16];
-    char current[2][16];
-    int current_line;
-    bool dirty;
-} display;
 
 
 //
@@ -186,6 +178,7 @@ static void read_user_input()
 {
     uint16_t n = 0;
     for(int8_t i=15; i>=0; --i) {
+
         n <<= 1;
 
         // put address into CD4067
@@ -193,12 +186,10 @@ static void read_user_input()
         set_S1((i >> 1) & 0x1);
         set_S2((i >> 2) & 0x1);
         set_S3((i >> 3) & 0x1);
+        _delay_us(60);  // according to the datasheet, the propagation time
+                        // is up to 60 us
 
         // read result from CD4067
-        //
-        // There was supposed to be a delay here, for the CD4067 to process the
-        // inputs and gives us result. But we ignore that - if we don't get the
-        // correct result now, we get it in the next iteration
         n |= Z();
     }
 
@@ -266,36 +257,34 @@ static void initialize_display()
     display_toggle_E();
     _delay_us(40);
 
-    // data length 4 bit, 16x2 display, font 5x8
-    display_write(0, 0b00101000);
+    display_write(0, 0b00101000);  // data length 4 bit, 16x2 display, font 5x8
+    display_write(0, 0b00001101);  // display on, cursor off, blinking
+    display_write(0, 0b00000001);  // clear screen
 
-    // display on, cursor off, blinking
-    display_write(0, 0b00001101);
-    display_write(0, 0b00000001);
-
-    // entry mode set
+    // entry mode set - cursor increment on write, do not accompanies display shift
     display_write(0, 0b00000110);
+    _delay_ms(2);
 
     // go home
     display_write(0, 0b00000010);
     _delay_ms(2);
-
-    // write data
-    /*
-    display_write(1, 'H');
-    display_write(1, 'e');
-    display_write(1, 'l');
-    display_write(1, 'l');
-    display_write(1, 'o');
-    display_write(1, '!');
-    */
 }
 
+
+// 
+// DISPLAY SCROLL SUPPORT
+//
 
 static void initialize_scroll_buttons()
 {
     GICR = (1 << INT0) | (1 << INT1);       // enable interrupts 0 and 1
     MCUCR = (1 << ISC11) | (1 << ISC01);    // interrupts called on falling edge
+}
+
+
+static void display_scroll(int n)
+{
+    // TODO
 }
 
 
@@ -337,6 +326,8 @@ static void uart_byte_received(char byte)
 ISR(TIMER0_COMP_vect)  // called when the timer is due
 {
     if(current_digit == 0) {
+        LEDS = 0;  // turn off display (to avoid that one of the numbers is brighter
+                   // than the others)
         read_user_input();
     }
     update_timer();
@@ -352,6 +343,7 @@ ISR(USART_RXC_vect)   // called when one byte is received on the RX line
 ISR(INT0_vect)   // called when SCRL_UP is pressed
 {
     DEBUG(1); _delay_ms(10); DEBUG(0); 
+    display_scroll(-1);
 }
 
 
@@ -359,6 +351,7 @@ ISR(INT1_vect)   // called when SCRL_DOWN is pressed
 {
     DEBUG(1); _delay_ms(10); DEBUG(0); _delay_ms(60);
     DEBUG(1); _delay_ms(10); DEBUG(0); 
+    display_scroll(1);
 }
 
 
@@ -388,8 +381,8 @@ int main()
     sei();
 
     for(;;) {
-        //DEBUG(1); _delay_ms(10); DEBUG(0); 
-        //_delay_ms(500);
+        DEBUG(1); _delay_ms(10); DEBUG(0); 
+        _delay_ms(500);
     }
 }
 
