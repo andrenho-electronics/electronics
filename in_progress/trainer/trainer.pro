@@ -1,4 +1,4 @@
-update=Seg 04 Jan 2016 17:34:07 BRST
+update=Qua 06 Jan 2016 21:44:59 BRST
 version=1
 last_client=kicad
 [cvpcb]

@@ -63,6 +63,8 @@
 #define RS()  (((PINC & (1 << PC5))) == 0 ? 0 : 1)
 #define DB7() (((PINC & (1 << PC0))) == 0 ? 0 : 1)
 
+#define SW_UP() ((PIND & (1 << PD2)) == 0 ? 1 : 0)
+#define SW_DOWN() ((PIND & (1 << PD3)) == 0 ? 1 : 0)
 
 //
 // 7 SEGMENT DISPLAY MANIPULATION
@@ -274,7 +276,7 @@ static void initialize_display()
 // DISPLAY SCROLL SUPPORT
 //
 
-#define NUM_LINES 4 /* 60 */
+#define NUM_LINES 30
 
 struct Display {
     int backscroll;
@@ -292,13 +294,6 @@ struct Display {
 };
 
 
-static void initialize_scroll_buttons()
-{
-    GICR = (1 << INT0) | (1 << INT1);       // enable interrupts 0 and 1
-    MCUCR = (1 << ISC11) | (1 << ISC01);    // interrupts called on falling edge
-}
-
-
 static void display_clear()
 {
     display.backscroll = 0;
@@ -311,6 +306,7 @@ static void display_clear()
     }
     display.cursor_y = NUM_LINES-2;
     display.dirty = true;
+    display_write(0, 0b00000001);  // clear screen
 }
 
 
@@ -357,8 +353,6 @@ static void display_scroll(int n)
 
 static void display_update()
 {
-    // TODO - disable this interrupt
-
     if(!display.dirty) {
         return;
     }
@@ -369,15 +363,22 @@ static void display_update()
             if(display.display[y][x] != display.lines[y+by][x]) {
                 display.display[y][x] = display.lines[y+by][x];
                 // send to display
-                uint8_t addr = ((y == 0) ? 0 : 40) + x;
+                uint8_t addr = ((y == 0) ? 0 : 0x40) + x;
                 display_write(0, 0b10000000 | addr);
                 display_write(1, (display.display[y][x] == 0) ? ' ' : display.display[y][x]);
             }
         }
     }
-    // TODO - send cursor position to display (or disable when backscroll is != 0)
-    
-    // TODO - enable this interrupt
+    // set cursor position
+    if(display.cursor_y == NUM_LINES-2 && display.backscroll == 0) {
+        display_write(0, 0b00001101);               // display on, cursor off, blinking
+        display_write(0, 0x80 + display.cursor_x);  // place cursor
+    } else if(display.cursor_y == NUM_LINES-1 && display.backscroll == 0) {
+        display_write(0, 0b00001101);                      // display on, cursor off, blinking
+        display_write(0, 0x80 + 0x40 + display.cursor_x);  // blinking
+    } else {
+        display_write(0, 0b00001100);  // display on, cursor off, not blinking
+    }
 }
 
 
@@ -432,18 +433,6 @@ ISR(USART_RXC_vect)   // called when one byte is received on the RX line
 }
 
 
-ISR(INT0_vect)   // called when SCRL_UP is pressed
-{
-    display_scroll(-1);
-}
-
-
-ISR(INT1_vect)   // called when SCRL_DOWN is pressed
-{
-    display_scroll(1);
-}
-
-
 //
 // MAIN PROCEDURE
 //
@@ -465,7 +454,6 @@ int main()
 
     initialize_7seg();
     initialize_display();
-    initialize_scroll_buttons();
     initialize_uart();
     sei();
 
@@ -473,6 +461,16 @@ int main()
         for(int i=0; i<10; ++i) {
             DEBUG(i == 0);
             display_update();
+            if(SW_UP()) {
+                display_scroll(-1);
+                display_update();
+                _delay_ms(100);
+            } else if(SW_DOWN()) {
+                display_scroll(1);
+                display_update();
+                _delay_ms(100);
+            }
+            _delay_ms(50);
         }
     }
 }
