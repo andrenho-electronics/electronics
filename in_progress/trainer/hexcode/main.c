@@ -256,11 +256,14 @@ static void initialize_display()
     set_RW(0);
     set_DB(0b0010);
     display_toggle_E();
-    _delay_us(40);
+    _delay_ms(50);
 
     display_write(0, 0b00101000);  // data length 4 bit, 16x2 display, font 5x8
+    _delay_ms(2);
     display_write(0, 0b00001101);  // display on, cursor off, blinking
+    _delay_ms(2);
     display_write(0, 0b00000001);  // clear screen
+    _delay_ms(2);
 
     // entry mode set - cursor increment on write, do not accompanies display shift
     display_write(0, 0b00000110);
@@ -439,7 +442,7 @@ ISR(USART_RXC_vect)   // called when one byte is received on the RX line
 
 int main()
 {
-    _delay_ms(50);
+    _delay_ms(500);
 
     // initialize
     DDRA = 0b11110111;
