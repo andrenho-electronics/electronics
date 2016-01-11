@@ -1,4 +1,4 @@
-update=Seg 14 Dez 2015 12:50:34 BRST
+update=Sáb 09 Jan 2016 19:54:05 BRST
 version=1
 last_client=kicad
 [cvpcb]
@@ -82,6 +82,8 @@ LibName32=C:/andre/projects/electronics/new/trainer/ULN280xA
 LibName33=Gajda_cmosieee
 LibName34=jhd-162a
 LibName35=capteurs
+[general]
+version=1
 [schematic_editor]
 version=1
 PageLayoutDescrFile=
@@ -92,5 +94,3 @@ NetFmtName=
 SpiceForceRefPrefix=0
 SpiceUseNetNumbers=0
 LabSize=60
-[general]
-version=1
