@@ -9,4 +9,14 @@ http://en.wikipedia.org/wiki/Direct_digital_synthesizer
 
 http://mdiy.pl/generator-funkcyjny-400khz-na-icl8038/?lang=en
 
+
+Funcionalidades:
+  - sine wave (also negative?)
+  - square wave (fast option), variable duty cycle
+  - triangle wave
+  - sawtooth wave (both sides)
+  - noise (white, pink, etc)
+  - arbitrary waveform
+
+
 http://www.nutsvolts.com/magazine/article/building_a_pulse_generator?utm_source=Newsletter+%2337B&utm_campaign=Newsletter+%2337&utm_medium=email

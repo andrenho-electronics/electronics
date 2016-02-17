@@ -1,0 +1,15 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP LD23900-ADJ
+D 3A Low Dropout Voltage Regulator, Adjustable
+K 3A LDO Regulator Adjustable Positive
+F http://www.st.com/st-web-ui/static/active/en/resource/technical/document/datasheet/CD00003208.pdf
+$ENDCMP
+#
+$CMP LD29300-ADJ
+D 3A Low Dropout Voltage Regulator, Adjustable
+K 3A LDO Regulator Adjustable Positive
+F http://www.st.com/st-web-ui/static/active/en/resource/technical/document/datasheet/CD00003208.pdf
+$ENDCMP
+#
+#End Doc Library
